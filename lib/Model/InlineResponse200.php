@@ -57,7 +57,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Client\Model\Obit[]'
+        'data' => 'object[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Obada\Client\Model\Obit[]|null
+     * @return object[]|null
      */
     public function getData()
     {
@@ -217,7 +217,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Obada\Client\Model\Obit[]|null $data data
+     * @param object[]|null $data data
      *
      * @return $this
      */

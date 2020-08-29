@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## createObit
 
-> createObit($new_obit)
+> createObit($body)
 
 
 
@@ -33,10 +33,10 @@ $apiInstance = new Obada\Client\Api\ObitApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$new_obit = new \Obada\Client\Model\NewObit(); // \Obada\Client\Model\NewObit | 
+$body = new \stdClass; // object | 
 
 try {
-    $apiInstance->createObit($new_obit);
+    $apiInstance->createObit($body);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->createObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_obit** | [**\Obada\Client\Model\NewObit**](../Model/NewObit.md)|  | [optional]
+ **body** | **object**|  | [optional]
 
 ### Return type
 
