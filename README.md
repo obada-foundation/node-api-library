@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
  - [NewObit](docs/Model/NewObit.md)
  - [NotFound](docs/Model/NotFound.md)
  - [Obit](docs/Model/Obit.md)
+ - [ObitHistory](docs/Model/ObitHistory.md)
  - [UnprocessableEntity](docs/Model/UnprocessableEntity.md)
 
 

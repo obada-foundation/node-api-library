@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2001
+ * ObitHistory
  *
  * PHP version 7.2
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Obada\Client\ObjectSerializer;
 
 /**
- * InlineResponse2001 Class Doc Comment
+ * ObitHistory Class Doc Comment
  *
  * @category Class
+ * @description New Obit request payload.
  * @package  Obada\Client
  * @author   Obada Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse2001 implements ModelInterface, ArrayAccess
+class ObitHistory implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_1';
+    protected static $openAPIModelName = 'ObitHistory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Client\Model\ObitHistory[]'
+        'obit_did' => 'string'
     ];
 
     /**
@@ -66,7 +67,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'obit_did' => null
     ];
 
     /**
@@ -96,7 +97,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'obit_did' => 'obit_did'
     ];
 
     /**
@@ -105,7 +106,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'obit_did' => 'setObitDid'
     ];
 
     /**
@@ -114,7 +115,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'obit_did' => 'getObitDid'
     ];
 
     /**
@@ -177,7 +178,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['obit_did'] = isset($data['obit_did']) ? $data['obit_did'] : null;
     }
 
     /**
@@ -188,6 +189,10 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['obit_did']) && (mb_strlen($this->container['obit_did']) > 256)) {
+            $invalidProperties[] = "invalid value for 'obit_did', the character length must be smaller than or equal to 256.";
+        }
 
         return $invalidProperties;
     }
@@ -205,25 +210,29 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets obit_did
      *
-     * @return \Obada\Client\Model\ObitHistory[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getObitDid()
     {
-        return $this->container['data'];
+        return $this->container['obit_did'];
     }
 
     /**
-     * Sets data
+     * Sets obit_did
      *
-     * @param \Obada\Client\Model\ObitHistory[]|null $data data
+     * @param string|null $obit_did OBADA decentralized identifier (max length Rohi?)
      *
      * @return $this
      */
-    public function setData($data)
+    public function setObitDid($obit_did)
     {
-        $this->container['data'] = $data;
+        if (!is_null($obit_did) && (mb_strlen($obit_did) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $obit_did when calling ObitHistory., must be smaller than or equal to 256.');
+        }
+
+        $this->container['obit_did'] = $obit_did;
 
         return $this;
     }

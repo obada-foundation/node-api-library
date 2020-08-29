@@ -8,6 +8,7 @@ docs/Model/InlineResponse2001.md
 docs/Model/NewObit.md
 docs/Model/NotFound.md
 docs/Model/Obit.md
+docs/Model/ObitHistory.md
 docs/Model/UnprocessableEntity.md
 git_push.sh
 lib/Api/ObitApi.php
@@ -20,6 +21,8 @@ lib/Model/ModelInterface.php
 lib/Model/NewObit.php
 lib/Model/NotFound.php
 lib/Model/Obit.php
+lib/Model/ObitHistory.php
 lib/Model/UnprocessableEntity.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ObitHistoryTest.php
