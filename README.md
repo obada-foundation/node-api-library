@@ -23,11 +23,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/obada-protocol/php-client-library.git"
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     }
   ],
   "require": {
-    "obada-protocol/php-client-library": "*@dev"
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
   }
 }
 ```
@@ -66,14 +66,12 @@ $apiInstance = new Obada\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$offset = 56; // int | Number of records to skip for pagination.
-$limit = 56; // int | Maximum number of records to return.
+$new_obit = new \Obada\Client\Model\NewObit(); // \Obada\Client\Model\NewObit | 
 
 try {
-    $result = $apiInstance->listBlockchain($offset, $limit);
-    print_r($result);
+    $apiInstance->createObit($new_obit);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listBlockchain: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->createObit: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -85,13 +83,19 @@ All URIs are relative to *https://dev.api.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**listBlockchain**](docs/Api/DefaultApi.md#listblockchain) | **GET** /blockchain | 
+*DefaultApi* | [**createObit**](docs/Api/DefaultApi.md#createobit) | **POST** /obits | 
+*DefaultApi* | [**removeObit**](docs/Api/DefaultApi.md#removeobit) | **DELETE** /obits/{obit_did}/remove | 
+*DefaultApi* | [**searchObits**](docs/Api/DefaultApi.md#searchobits) | **GET** /obits | 
+*DefaultApi* | [**showObit**](docs/Api/DefaultApi.md#showobit) | **GET** /obits/{obit_did} | 
 
 
 ## Documentation For Models
 
  - [InlineResponse200](docs/Model/InlineResponse200.md)
- - [Transaction](docs/Model/Transaction.md)
+ - [NewObit](docs/Model/NewObit.md)
+ - [NotFound](docs/Model/NotFound.md)
+ - [Obit](docs/Model/Obit.md)
+ - [UnprocessableEntity](docs/Model/UnprocessableEntity.md)
 
 
 ## Documentation For Authorization

@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * UnprocessableEntity
  *
  * PHP version 7.2
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Obada\Client\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * UnprocessableEntity Class Doc Comment
  *
  * @category Class
+ * @description A typical 422 error.
  * @package  Obada\Client
  * @author   Obada Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess
+class UnprocessableEntity implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'UnprocessableEntity';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Client\Model\Obit[]'
+        'code' => 'int',
+        'message' => 'string',
+        'errors' => 'map[string,string[]]'
     ];
 
     /**
@@ -66,7 +69,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'code' => null,
+        'message' => null,
+        'errors' => null
     ];
 
     /**
@@ -96,7 +101,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'code' => 'code',
+        'message' => 'message',
+        'errors' => 'errors'
     ];
 
     /**
@@ -105,7 +112,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'code' => 'setCode',
+        'message' => 'setMessage',
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -114,7 +123,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'code' => 'getCode',
+        'message' => 'getMessage',
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -177,7 +188,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : 422;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : 'The given data was invalid.';
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -205,25 +218,73 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets code
      *
-     * @return \Obada\Client\Model\Obit[]|null
+     * @return int|null
      */
-    public function getData()
+    public function getCode()
     {
-        return $this->container['data'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets data
+     * Sets code
      *
-     * @param \Obada\Client\Model\Obit[]|null $data data
+     * @param int|null $code code
      *
      * @return $this
      */
-    public function setData($data)
+    public function setCode($code)
     {
-        $this->container['data'] = $data;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors
+     *
+     * @return map[string,string[]]|null
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param map[string,string[]]|null $errors errors
+     *
+     * @return $this
+     */
+    public function setErrors($errors)
+    {
+        $this->container['errors'] = $errors;
 
         return $this;
     }

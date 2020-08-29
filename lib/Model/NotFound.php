@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * NotFound
  *
  * PHP version 7.2
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Obada\Client\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * NotFound Class Doc Comment
  *
  * @category Class
+ * @description A typical 404 error.
  * @package  Obada\Client
  * @author   Obada Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess
+class NotFound implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'NotFound';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Client\Model\Obit[]'
+        'code' => 'int',
+        'message' => 'string'
     ];
 
     /**
@@ -66,7 +68,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'code' => null,
+        'message' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'code' => 'code',
+        'message' => 'message'
     ];
 
     /**
@@ -105,7 +109,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'code' => 'setCode',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -114,7 +119,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'code' => 'getCode',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -177,7 +183,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : 404;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : 'The requested resource could not be found.';
     }
 
     /**
@@ -205,25 +212,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets code
      *
-     * @return \Obada\Client\Model\Obit[]|null
+     * @return int|null
      */
-    public function getData()
+    public function getCode()
     {
-        return $this->container['data'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets data
+     * Sets code
      *
-     * @param \Obada\Client\Model\Obit[]|null $data data
+     * @param int|null $code code
      *
      * @return $this
      */
-    public function setData($data)
+    public function setCode($code)
     {
-        $this->container['data'] = $data;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
 
         return $this;
     }
