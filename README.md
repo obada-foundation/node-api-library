@@ -61,7 +61,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Obada\Client\Api\ObitsAPIApi(
+$apiInstance = new Obada\Client\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -71,7 +71,7 @@ $new_obit = new \Obada\Client\Model\NewObit(); // \Obada\Client\Model\NewObit |
 try {
     $apiInstance->createObit($new_obit);
 } catch (Exception $e) {
-    echo 'Exception when calling ObitsAPIApi->createObit: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObitApi->createObit: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -83,12 +83,12 @@ All URIs are relative to *https://dev.api.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ObitsAPIApi* | [**createObit**](docs/Api/ObitsAPIApi.md#createobit) | **POST** /obits | 
-*ObitsAPIApi* | [**removeObit**](docs/Api/ObitsAPIApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
-*ObitsAPIApi* | [**searchObits**](docs/Api/ObitsAPIApi.md#searchobits) | **GET** /obits | 
-*ObitsAPIApi* | [**showObit**](docs/Api/ObitsAPIApi.md#showobit) | **GET** /obits/{obit_did} | 
-*ObitsAPIApi* | [**showObitHistory**](docs/Api/ObitsAPIApi.md#showobithistory) | **GET** /obits/{obit_did}/history | 
-*ObitsAPIApi* | [**updateObit**](docs/Api/ObitsAPIApi.md#updateobit) | **PUT** /obits/{obit_did} | 
+*ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
+*ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
+*ObitApi* | [**searchObits**](docs/Api/ObitApi.md#searchobits) | **GET** /obits | 
+*ObitApi* | [**showObit**](docs/Api/ObitApi.md#showobit) | **GET** /obits/{obit_did} | 
+*ObitApi* | [**showObitHistory**](docs/Api/ObitApi.md#showobithistory) | **GET** /obits/{obit_did}/history | 
+*ObitApi* | [**updateObit**](docs/Api/ObitApi.md#updateobit) | **PUT** /obits/{obit_did} | 
 
 
 ## Documentation For Models

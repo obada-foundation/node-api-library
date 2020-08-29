@@ -307,6 +307,9 @@ class NewObit implements ModelInterface, ArrayAccess
         if ($this->container['serial_number_hash'] === null) {
             $invalidProperties[] = "'serial_number_hash' can't be null";
         }
+        if ($this->container['modified_at'] === null) {
+            $invalidProperties[] = "'modified_at' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -602,7 +605,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets modified_at
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getModifiedAt()
     {
@@ -612,7 +615,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets modified_at
      *
-     * @param \DateTime|null $modified_at modified_at
+     * @param \DateTime $modified_at modified_at
      *
      * @return $this
      */
