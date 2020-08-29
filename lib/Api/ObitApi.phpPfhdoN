@@ -118,29 +118,29 @@ class ObitApi
     /**
      * Operation createObit
      *
-     * @param  object $body body (optional)
+     * @param  \Obada\Client\Model\NewObit $new_obit new_obit (optional)
      *
      * @throws \Obada\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createObit($body = null)
+    public function createObit($new_obit = null)
     {
-        $this->createObitWithHttpInfo($body);
+        $this->createObitWithHttpInfo($new_obit);
     }
 
     /**
      * Operation createObitWithHttpInfo
      *
-     * @param  object $body (optional)
+     * @param  \Obada\Client\Model\NewObit $new_obit (optional)
      *
      * @throws \Obada\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createObitWithHttpInfo($body = null)
+    public function createObitWithHttpInfo($new_obit = null)
     {
-        $request = $this->createObitRequest($body);
+        $request = $this->createObitRequest($new_obit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -192,14 +192,14 @@ class ObitApi
      *
      * 
      *
-     * @param  object $body (optional)
+     * @param  \Obada\Client\Model\NewObit $new_obit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObitAsync($body = null)
+    public function createObitAsync($new_obit = null)
     {
-        return $this->createObitAsyncWithHttpInfo($body)
+        return $this->createObitAsyncWithHttpInfo($new_obit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -212,15 +212,15 @@ class ObitApi
      *
      * 
      *
-     * @param  object $body (optional)
+     * @param  \Obada\Client\Model\NewObit $new_obit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObitAsyncWithHttpInfo($body = null)
+    public function createObitAsyncWithHttpInfo($new_obit = null)
     {
         $returnType = '';
-        $request = $this->createObitRequest($body);
+        $request = $this->createObitRequest($new_obit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -230,74 +230,3 @@ class ObitApi
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createObit'
-     *
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function createObitRequest($body = null)
-    {
-
-        $resourcePath = '/obits';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
