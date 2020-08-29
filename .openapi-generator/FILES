@@ -23,4 +23,3 @@ lib/Model/Obit.php
 lib/Model/UnprocessableEntity.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/ObitApiTest.php
