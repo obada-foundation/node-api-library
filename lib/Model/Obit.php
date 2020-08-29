@@ -60,16 +60,17 @@ class Obit implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'obit_did' => 'string',
         'usn' => 'string',
-        'obit_did_versions' => 'string',
+        'obit_did_versions' => 'string[]',
         'owner_did' => 'string',
         'obd_did' => 'string',
         'obit_status' => 'string',
         'manufacturer' => 'string',
         'part_number' => 'string',
         'serial_number_hash' => 'string',
-        'metadata' => 'string',
-        'doc_links' => 'string',
-        'structured_data' => 'string',
+        'metadata' => 'object[]',
+        'doc_links' => 'object[]',
+        'structured_data' => 'object[]',
+        'modified_at' => '\DateTime',
         'root_hash' => 'string'
     ];
 
@@ -91,6 +92,7 @@ class Obit implements ModelInterface, ArrayAccess
         'metadata' => null,
         'doc_links' => null,
         'structured_data' => null,
+        'modified_at' => 'date-time',
         'root_hash' => null
     ];
 
@@ -133,6 +135,7 @@ class Obit implements ModelInterface, ArrayAccess
         'metadata' => 'metadata',
         'doc_links' => 'doc_links',
         'structured_data' => 'structured_data',
+        'modified_at' => 'modified_at',
         'root_hash' => 'root_hash'
     ];
 
@@ -154,6 +157,7 @@ class Obit implements ModelInterface, ArrayAccess
         'metadata' => 'setMetadata',
         'doc_links' => 'setDocLinks',
         'structured_data' => 'setStructuredData',
+        'modified_at' => 'setModifiedAt',
         'root_hash' => 'setRootHash'
     ];
 
@@ -175,6 +179,7 @@ class Obit implements ModelInterface, ArrayAccess
         'metadata' => 'getMetadata',
         'doc_links' => 'getDocLinks',
         'structured_data' => 'getStructuredData',
+        'modified_at' => 'getModifiedAt',
         'root_hash' => 'getRootHash'
     ];
 
@@ -250,6 +255,7 @@ class Obit implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['doc_links'] = isset($data['doc_links']) ? $data['doc_links'] : null;
         $this->container['structured_data'] = isset($data['structured_data']) ? $data['structured_data'] : null;
+        $this->container['modified_at'] = isset($data['modified_at']) ? $data['modified_at'] : null;
         $this->container['root_hash'] = isset($data['root_hash']) ? $data['root_hash'] : null;
     }
 
@@ -355,7 +361,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Gets obit_did_versions
      *
-     * @return string
+     * @return string[]
      */
     public function getObitDidVersions()
     {
@@ -365,7 +371,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets obit_did_versions
      *
-     * @param string $obit_did_versions Universal serial number
+     * @param string[] $obit_did_versions Client generated things. First hash + last hash
      *
      * @return $this
      */
@@ -389,7 +395,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets owner_did
      *
-     * @param string $owner_did todo
+     * @param string $owner_did Owner is the person/entity that owns the obit and the physical asset it represents. Format is a DID like did:obada:owner:1234. However in the current version only test numbers will be used.
      *
      * @return $this
      */
@@ -413,7 +419,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets obd_did
      *
-     * @param string $obd_did TODO: discuss with Rohi what does it means
+     * @param string $obd_did Future use. The OBD DID is formatted like did:obada:obd:1234, which represents a utility token tracking orders and proofs.
      *
      * @return $this
      */
@@ -437,7 +443,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets obit_status
      *
-     * @param string $obit_status TODO: discuss with Rohi available statuses
+     * @param string $obit_status Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER
      *
      * @return $this
      */
@@ -461,7 +467,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets manufacturer
      *
-     * @param string $manufacturer todo
+     * @param string $manufacturer Waiting more specific details from Rohi
      *
      * @return $this
      */
@@ -485,7 +491,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets part_number
      *
-     * @param string $part_number todo
+     * @param string $part_number Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160)
      *
      * @return $this
      */
@@ -509,7 +515,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets serial_number_hash
      *
-     * @param string $serial_number_hash todo
+     * @param string $serial_number_hash Serial number hashed with sha256 hash function
      *
      * @return $this
      */
@@ -523,7 +529,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getMetadata()
     {
@@ -533,7 +539,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param string|null $metadata metadata
+     * @param object[]|null $metadata Get description from Rohi
      *
      * @return $this
      */
@@ -547,7 +553,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Gets doc_links
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getDocLinks()
     {
@@ -557,7 +563,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets doc_links
      *
-     * @param string|null $doc_links doc_links
+     * @param object[]|null $doc_links doc_links
      *
      * @return $this
      */
@@ -571,7 +577,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Gets structured_data
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getStructuredData()
     {
@@ -581,13 +587,37 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets structured_data
      *
-     * @param string|null $structured_data structured_data
+     * @param object[]|null $structured_data structured_data
      *
      * @return $this
      */
     public function setStructuredData($structured_data)
     {
         $this->container['structured_data'] = $structured_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at modified_at
+     *
+     * @return $this
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
 
         return $this;
     }
@@ -605,7 +635,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets root_hash
      *
-     * @param string|null $root_hash root_hash
+     * @param string|null $root_hash Hash calculated by SHA256 (previous Obit root hash + Obit data)
      *
      * @return $this
      */

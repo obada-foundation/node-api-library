@@ -61,7 +61,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Obada\Client\Api\DefaultApi(
+$apiInstance = new Obada\Client\Api\ObitsAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -71,7 +71,7 @@ $new_obit = new \Obada\Client\Model\NewObit(); // \Obada\Client\Model\NewObit |
 try {
     $apiInstance->createObit($new_obit);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->createObit: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObitsAPIApi->createObit: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -83,15 +83,18 @@ All URIs are relative to *https://dev.api.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**createObit**](docs/Api/DefaultApi.md#createobit) | **POST** /obits | 
-*DefaultApi* | [**removeObit**](docs/Api/DefaultApi.md#removeobit) | **DELETE** /obits/{obit_did}/remove | 
-*DefaultApi* | [**searchObits**](docs/Api/DefaultApi.md#searchobits) | **GET** /obits | 
-*DefaultApi* | [**showObit**](docs/Api/DefaultApi.md#showobit) | **GET** /obits/{obit_did} | 
+*ObitsAPIApi* | [**createObit**](docs/Api/ObitsAPIApi.md#createobit) | **POST** /obits | 
+*ObitsAPIApi* | [**removeObit**](docs/Api/ObitsAPIApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
+*ObitsAPIApi* | [**searchObits**](docs/Api/ObitsAPIApi.md#searchobits) | **GET** /obits | 
+*ObitsAPIApi* | [**showObit**](docs/Api/ObitsAPIApi.md#showobit) | **GET** /obits/{obit_did} | 
+*ObitsAPIApi* | [**showObitHistory**](docs/Api/ObitsAPIApi.md#showobithistory) | **GET** /obits/{obit_did}/history | 
+*ObitsAPIApi* | [**updateObit**](docs/Api/ObitsAPIApi.md#updateobit) | **PUT** /obits/{obit_did} | 
 
 
 ## Documentation For Models
 
  - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [NewObit](docs/Model/NewObit.md)
  - [NotFound](docs/Model/NotFound.md)
  - [Obit](docs/Model/Obit.md)

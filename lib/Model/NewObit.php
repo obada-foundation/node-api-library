@@ -36,7 +36,7 @@ use \Obada\Client\ObjectSerializer;
  * NewObit Class Doc Comment
  *
  * @category Class
- * @description OBADA record.
+ * @description New Obit request payload.
  * @package  Obada\Client
  * @author   Obada Generator team
  * @link     https://openapi-generator.tech
@@ -58,6 +58,7 @@ class NewObit implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'obit_did' => 'string',
         'usn' => 'string',
         'owner_did' => 'string',
         'obd_did' => 'string',
@@ -65,9 +66,10 @@ class NewObit implements ModelInterface, ArrayAccess
         'manufacturer' => 'string',
         'part_number' => 'string',
         'serial_number_hash' => 'string',
-        'metadata' => 'string',
-        'doc_links' => 'string',
-        'structured_data' => 'string'
+        'metadata' => 'object[]',
+        'doc_links' => 'object[]',
+        'structured_data' => 'object[]',
+        'modified_at' => '\DateTime'
     ];
 
     /**
@@ -76,6 +78,7 @@ class NewObit implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'obit_did' => null,
         'usn' => null,
         'owner_did' => null,
         'obd_did' => null,
@@ -85,7 +88,8 @@ class NewObit implements ModelInterface, ArrayAccess
         'serial_number_hash' => null,
         'metadata' => null,
         'doc_links' => null,
-        'structured_data' => null
+        'structured_data' => null,
+        'modified_at' => 'date-time'
     ];
 
     /**
@@ -115,6 +119,7 @@ class NewObit implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'obit_did' => 'obit_did',
         'usn' => 'usn',
         'owner_did' => 'owner_did',
         'obd_did' => 'obd_did',
@@ -124,7 +129,8 @@ class NewObit implements ModelInterface, ArrayAccess
         'serial_number_hash' => 'serial_number_hash',
         'metadata' => 'metadata',
         'doc_links' => 'doc_links',
-        'structured_data' => 'structured_data'
+        'structured_data' => 'structured_data',
+        'modified_at' => 'modified_at'
     ];
 
     /**
@@ -133,6 +139,7 @@ class NewObit implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'obit_did' => 'setObitDid',
         'usn' => 'setUsn',
         'owner_did' => 'setOwnerDid',
         'obd_did' => 'setObdDid',
@@ -142,7 +149,8 @@ class NewObit implements ModelInterface, ArrayAccess
         'serial_number_hash' => 'setSerialNumberHash',
         'metadata' => 'setMetadata',
         'doc_links' => 'setDocLinks',
-        'structured_data' => 'setStructuredData'
+        'structured_data' => 'setStructuredData',
+        'modified_at' => 'setModifiedAt'
     ];
 
     /**
@@ -151,6 +159,7 @@ class NewObit implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'obit_did' => 'getObitDid',
         'usn' => 'getUsn',
         'owner_did' => 'getOwnerDid',
         'obd_did' => 'getObdDid',
@@ -160,7 +169,8 @@ class NewObit implements ModelInterface, ArrayAccess
         'serial_number_hash' => 'getSerialNumberHash',
         'metadata' => 'getMetadata',
         'doc_links' => 'getDocLinks',
-        'structured_data' => 'getStructuredData'
+        'structured_data' => 'getStructuredData',
+        'modified_at' => 'getModifiedAt'
     ];
 
     /**
@@ -204,8 +214,29 @@ class NewObit implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const OBIT_STATUS_FUNCTIONAL = 'FUNCTIONAL';
+    const OBIT_STATUS_NON_FUNCTIONAL = 'NON_FUNCTIONAL';
+    const OBIT_STATUS_DISPOSED = 'DISPOSED';
+    const OBIT_STATUS_STOLEN = 'STOLEN';
+    const OBIT_STATUS_DISABLED_BY_OWNER = 'DISABLED_BY_OWNER';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObitStatusAllowableValues()
+    {
+        return [
+            self::OBIT_STATUS_FUNCTIONAL,
+            self::OBIT_STATUS_NON_FUNCTIONAL,
+            self::OBIT_STATUS_DISPOSED,
+            self::OBIT_STATUS_STOLEN,
+            self::OBIT_STATUS_DISABLED_BY_OWNER,
+        ];
+    }
     
 
     /**
@@ -223,6 +254,7 @@ class NewObit implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['obit_did'] = isset($data['obit_did']) ? $data['obit_did'] : null;
         $this->container['usn'] = isset($data['usn']) ? $data['usn'] : null;
         $this->container['owner_did'] = isset($data['owner_did']) ? $data['owner_did'] : null;
         $this->container['obd_did'] = isset($data['obd_did']) ? $data['obd_did'] : null;
@@ -233,6 +265,7 @@ class NewObit implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['doc_links'] = isset($data['doc_links']) ? $data['doc_links'] : null;
         $this->container['structured_data'] = isset($data['structured_data']) ? $data['structured_data'] : null;
+        $this->container['modified_at'] = isset($data['modified_at']) ? $data['modified_at'] : null;
     }
 
     /**
@@ -244,18 +277,27 @@ class NewObit implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['obit_did'] === null) {
+            $invalidProperties[] = "'obit_did' can't be null";
+        }
+        if ((mb_strlen($this->container['obit_did']) > 256)) {
+            $invalidProperties[] = "invalid value for 'obit_did', the character length must be smaller than or equal to 256.";
+        }
+
         if ($this->container['usn'] === null) {
             $invalidProperties[] = "'usn' can't be null";
         }
         if ($this->container['owner_did'] === null) {
             $invalidProperties[] = "'owner_did' can't be null";
         }
-        if ($this->container['obd_did'] === null) {
-            $invalidProperties[] = "'obd_did' can't be null";
+        $allowedValues = $this->getObitStatusAllowableValues();
+        if (!is_null($this->container['obit_status']) && !in_array($this->container['obit_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'obit_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['obit_status'] === null) {
-            $invalidProperties[] = "'obit_status' can't be null";
-        }
+
         if ($this->container['manufacturer'] === null) {
             $invalidProperties[] = "'manufacturer' can't be null";
         }
@@ -281,6 +323,34 @@ class NewObit implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets obit_did
+     *
+     * @return string
+     */
+    public function getObitDid()
+    {
+        return $this->container['obit_did'];
+    }
+
+    /**
+     * Sets obit_did
+     *
+     * @param string $obit_did OBADA decentralized identifier (max length Rohi?)
+     *
+     * @return $this
+     */
+    public function setObitDid($obit_did)
+    {
+        if ((mb_strlen($obit_did) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $obit_did when calling NewObit., must be smaller than or equal to 256.');
+        }
+
+        $this->container['obit_did'] = $obit_did;
+
+        return $this;
+    }
+
+    /**
      * Gets usn
      *
      * @return string
@@ -293,7 +363,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets usn
      *
-     * @param string $usn Universal serial number
+     * @param string $usn An 8-12 character “URL Shortened” obit. Create the USN by Base(58) encoding the OBIT ID. Take the first 8 characters. Check for duplicates. With 16 million OBITs there is a 40% chance of collision. If so, add 4 characters. Repeat as necessary until a unique USN is generated.
      *
      * @return $this
      */
@@ -317,7 +387,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets owner_did
      *
-     * @param string $owner_did Do we need it when we create the obit?
+     * @param string $owner_did Owner is the person/entity that owns the obit and the physical asset it represents. Format is a DID like did:obada:owner:1234. However in the current version only test numbers will be used.
      *
      * @return $this
      */
@@ -331,7 +401,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets obd_did
      *
-     * @return string
+     * @return string|null
      */
     public function getObdDid()
     {
@@ -341,7 +411,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets obd_did
      *
-     * @param string $obd_did TODO: discuss with Rohi what does it means
+     * @param string|null $obd_did Future use. The OBD DID is formatted like did:obada:obd:1234, which represents a utility token tracking orders and proofs.
      *
      * @return $this
      */
@@ -355,7 +425,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets obit_status
      *
-     * @return string
+     * @return string|null
      */
     public function getObitStatus()
     {
@@ -365,12 +435,21 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets obit_status
      *
-     * @param string $obit_status TODO: discuss with Rohi available statuses
+     * @param string|null $obit_status Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER
      *
      * @return $this
      */
     public function setObitStatus($obit_status)
     {
+        $allowedValues = $this->getObitStatusAllowableValues();
+        if (!is_null($obit_status) && !in_array($obit_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'obit_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['obit_status'] = $obit_status;
 
         return $this;
@@ -389,7 +468,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets manufacturer
      *
-     * @param string $manufacturer todo
+     * @param string $manufacturer Waiting more specific details from Rohi
      *
      * @return $this
      */
@@ -413,7 +492,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets part_number
      *
-     * @param string $part_number todo
+     * @param string $part_number Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160)
      *
      * @return $this
      */
@@ -437,7 +516,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets serial_number_hash
      *
-     * @param string $serial_number_hash todo
+     * @param string $serial_number_hash Serial number hashed with sha256 hash function
      *
      * @return $this
      */
@@ -451,7 +530,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getMetadata()
     {
@@ -461,7 +540,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param string|null $metadata metadata
+     * @param object[]|null $metadata Get description from Rohi
      *
      * @return $this
      */
@@ -475,7 +554,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets doc_links
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getDocLinks()
     {
@@ -485,7 +564,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets doc_links
      *
-     * @param string|null $doc_links doc_links
+     * @param object[]|null $doc_links To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1=hash-of-document. Note this does not yet adhere to the hashlink standard.
      *
      * @return $this
      */
@@ -499,7 +578,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets structured_data
      *
-     * @return string|null
+     * @return object[]|null
      */
     public function getStructuredData()
     {
@@ -509,13 +588,37 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets structured_data
      *
-     * @param string|null $structured_data structured_data
+     * @param object[]|null $structured_data Same as metadata but bigger. Key (string) => Value (string) (hash per line sha256(key + value))
      *
      * @return $this
      */
     public function setStructuredData($structured_data)
     {
         $this->container['structured_data'] = $structured_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at modified_at
+     *
+     * @return $this
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
 
         return $this;
     }
