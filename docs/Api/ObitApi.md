@@ -143,10 +143,10 @@ $apiInstance = new Obada\Client\Api\ObitApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$serial_number_hash = fe403a1afe16203f4b8bb3a0e72d3e17567897bc15293e4a87b663e441030aea; // string | 
-$obit_status = 'obit_status_example'; // string | 
-$manufacturer = Sony; // string | 
-$part_number = MWCN2LL/A; // string | 
+$serial_number_hash = fe403a1afe16203f4b8bb3a0e72d3e17567897bc15293e4a87b663e441030aea; // string | Query argument that filters by serial number hash
+$obit_status = 'obit_status_example'; // string | Query argument that filters by obit status
+$manufacturer = Sony; // string | Query argument that filters by manufacturer
+$part_number = MWCN2LL/A; // string | Query argument that filters by part number
 $usn = 2zEz-xLJR; // string | Universal serial number
 $owner_did = did:obada:owner:123456; // string | OBADA owner DID
 $offset = 0; // int | Number of records to skip for pagination.
@@ -166,10 +166,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serial_number_hash** | **string**|  | [optional]
- **obit_status** | **string**|  | [optional]
- **manufacturer** | **string**|  | [optional]
- **part_number** | **string**|  | [optional]
+ **serial_number_hash** | **string**| Query argument that filters by serial number hash | [optional]
+ **obit_status** | **string**| Query argument that filters by obit status | [optional]
+ **manufacturer** | **string**| Query argument that filters by manufacturer | [optional]
+ **part_number** | **string**| Query argument that filters by part number | [optional]
  **usn** | **string**| Universal serial number | [optional]
  **owner_did** | **string**| OBADA owner DID | [optional]
  **offset** | **int**| Number of records to skip for pagination. | [optional] [default to 0]

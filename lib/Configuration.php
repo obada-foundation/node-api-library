@@ -436,11 +436,11 @@ class Configuration
     {
         return [
             [
-                "url" => "https://dev.api.obada.io/",
+                "url" => "https://dev.api.obada.io",
                 "description" => "OBADA Staging API",
             ],
             [
-                "url" => "http://api.obada.io/",
+                "url" => "http://api.obada.io",
                 "description" => "OBADA Production API",
             ]
         ];
