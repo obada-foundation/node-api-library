@@ -1,4 +1,4 @@
-# Obada\Client\ObitApi
+# Obada\ObitApi
 
 All URIs are relative to *https://dev.api.obada.io*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## createObit
 
-> createObit($new_obit)
+> createObit($newObit)
 
 
 
@@ -28,15 +28,15 @@ Creates a new obit.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Obada\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$new_obit = new \Obada\Client\Model\NewObit(); // \Obada\Client\Model\NewObit | 
+$newObit = new \Obada\Entities\NewObit(); // \Obada\Entities\NewObit | 
 
 try {
-    $apiInstance->createObit($new_obit);
+    $apiInstance->createObit($newObit);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->createObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_obit** | [**\Obada\Client\Model\NewObit**](../Model/NewObit.md)|  | [optional]
+ **newObit** | [**\Obada\Entities\NewObit**](../Model/NewObit.md)|  | [optional]
 
 ### Return type
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## removeObit
 
-> removeObit($obit_did)
+> removeObit($obitDid)
 
 
 
@@ -83,15 +83,15 @@ Changes Obit status to DISABLED_BY_OWNER
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Obada\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$obit_did = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
+$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
 
 try {
-    $apiInstance->removeObit($obit_did);
+    $apiInstance->removeObit($obitDid);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->removeObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -103,7 +103,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obit_did** | **string**| The given ObitDID argument |
+ **obitDid** | **string**| The given ObitDID argument |
 
 ### Return type
 
@@ -125,7 +125,7 @@ No authorization required
 
 ## searchObits
 
-> \Obada\Client\Model\InlineResponse200 searchObits($serial_number_hash, $obit_status, $manufacturer, $part_number, $usn, $owner_did, $offset, $limit)
+> \Obada\Entities\InlineResponse200 searchObits($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit)
 
 
 
@@ -138,22 +138,22 @@ Search obits by given filters.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Obada\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$serial_number_hash = fe403a1afe16203f4b8bb3a0e72d3e17567897bc15293e4a87b663e441030aea; // string | Query argument that filters by serial number hash
-$obit_status = 'obit_status_example'; // string | Query argument that filters by obit status
+$serialNumberHash = fe403a1afe16203f4b8bb3a0e72d3e17567897bc15293e4a87b663e441030aea; // string | Query argument that filters by serial number hash
+$obitStatus = 'obitStatus_example'; // string | Query argument that filters by obit status
 $manufacturer = Sony; // string | Query argument that filters by manufacturer
-$part_number = MWCN2LL/A; // string | Query argument that filters by part number
+$partNumber = MWCN2LL/A; // string | Query argument that filters by part number
 $usn = 2zEz-xLJR; // string | Universal serial number
-$owner_did = did:obada:owner:123456; // string | OBADA owner DID
+$ownerDid = did:obada:owner:123456; // string | OBADA owner DID
 $offset = 0; // int | Number of records to skip for pagination.
 $limit = 0; // int | Maximum number of records to return.
 
 try {
-    $result = $apiInstance->searchObits($serial_number_hash, $obit_status, $manufacturer, $part_number, $usn, $owner_did, $offset, $limit);
+    $result = $apiInstance->searchObits($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->searchObits: ', $e->getMessage(), PHP_EOL;
@@ -166,18 +166,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serial_number_hash** | **string**| Query argument that filters by serial number hash | [optional]
- **obit_status** | **string**| Query argument that filters by obit status | [optional]
+ **serialNumberHash** | **string**| Query argument that filters by serial number hash | [optional]
+ **obitStatus** | **string**| Query argument that filters by obit status | [optional]
  **manufacturer** | **string**| Query argument that filters by manufacturer | [optional]
- **part_number** | **string**| Query argument that filters by part number | [optional]
+ **partNumber** | **string**| Query argument that filters by part number | [optional]
  **usn** | **string**| Universal serial number | [optional]
- **owner_did** | **string**| OBADA owner DID | [optional]
+ **ownerDid** | **string**| OBADA owner DID | [optional]
  **offset** | **int**| Number of records to skip for pagination. | [optional] [default to 0]
  **limit** | **int**| Maximum number of records to return. | [optional] [default to 0]
 
 ### Return type
 
-[**\Obada\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ No authorization required
 
 ## showObit
 
-> showObit($obit_did)
+> showObit($obitDid)
 
 
 
@@ -208,15 +208,15 @@ Shows the information about single Obit by given ObitDID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Obada\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$obit_did = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
+$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
 
 try {
-    $apiInstance->showObit($obit_did);
+    $apiInstance->showObit($obitDid);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->showObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -228,7 +228,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obit_did** | **string**| The given ObitDID argument |
+ **obitDid** | **string**| The given ObitDID argument |
 
 ### Return type
 
@@ -250,7 +250,7 @@ No authorization required
 
 ## showObitHistory
 
-> \Obada\Client\Model\InlineResponse2001 showObitHistory($obit_did)
+> \Obada\Entities\InlineResponse2001 showObitHistory($obitDid)
 
 
 
@@ -263,15 +263,15 @@ Shows the history of changes by given Obit with ObitDID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Obada\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$obit_did = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
+$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
 
 try {
-    $result = $apiInstance->showObitHistory($obit_did);
+    $result = $apiInstance->showObitHistory($obitDid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->showObitHistory: ', $e->getMessage(), PHP_EOL;
@@ -284,11 +284,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obit_did** | **string**| The given ObitDID argument |
+ **obitDid** | **string**| The given ObitDID argument |
 
 ### Return type
 
-[**\Obada\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -306,7 +306,7 @@ No authorization required
 
 ## updateObit
 
-> updateObit($obit_did)
+> updateObit($obitDid)
 
 
 
@@ -319,15 +319,15 @@ Updates Obit by given ObitDID with payload
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Obada\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$obit_did = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
+$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
 
 try {
-    $apiInstance->updateObit($obit_did);
+    $apiInstance->updateObit($obitDid);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->updateObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -339,7 +339,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obit_did** | **string**| The given ObitDID argument |
+ **obitDid** | **string**| The given ObitDID argument |
 
 ### Return type
 
