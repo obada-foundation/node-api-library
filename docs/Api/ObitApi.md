@@ -195,7 +195,7 @@ No authorization required
 
 ## showObit
 
-> showObit($obitDid)
+> \Obada\Entities\Obit showObit($obitDid)
 
 
 
@@ -216,7 +216,8 @@ $apiInstance = new Obada\Api\ObitApi(
 $obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
 
 try {
-    $apiInstance->showObit($obitDid);
+    $result = $apiInstance->showObit($obitDid);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->showObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -232,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Obada\Entities\Obit**](../Model/Obit.md)
 
 ### Authorization
 
