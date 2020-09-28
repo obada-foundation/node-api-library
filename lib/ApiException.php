@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Obada;
+namespace OpenAPI\Client;
 
 use \Exception;
 
@@ -34,7 +34,7 @@ use \Exception;
  * ApiException Class Doc Comment
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -44,7 +44,7 @@ class ApiException extends Exception
     /**
      * The HTTP body of the server response either as Json or string.
      *
-     * @var mixed
+     * @var \stdClass|string|null
      */
     protected $responseBody;
 
@@ -58,17 +58,17 @@ class ApiException extends Exception
     /**
      * The deserialized response object
      *
-     * @var $responseObject;
+     * @var \stdClass|string|null
      */
     protected $responseObject;
 
     /**
      * Constructor
      *
-     * @param string        $message         Error message
-     * @param int           $code            HTTP status code
-     * @param string[]|null $responseHeaders HTTP response header
-     * @param mixed         $responseBody    HTTP decoded body of the server response either as \stdClass or string
+     * @param string                $message         Error message
+     * @param int                   $code            HTTP status code
+     * @param string[]|null         $responseHeaders HTTP response header
+     * @param \stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
      */
     public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
     {
@@ -90,7 +90,7 @@ class ApiException extends Exception
     /**
      * Gets the HTTP body of the server response either as Json or string
      *
-     * @return mixed HTTP body of the server response either as \stdClass or string
+     * @return \stdClass|string|null HTTP body of the server response either as \stdClass or string
      */
     public function getResponseBody()
     {

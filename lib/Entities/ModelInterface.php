@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Obada\Entities
+ * @package  OpenAPI\Client\Entities
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace Obada\Entities;
+namespace OpenAPI\Client\Entities;
 
 /**
  * Interface abstracting model access.
  *
- * @package Obada\Entities
+ * @package OpenAPI\Client\Entities
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

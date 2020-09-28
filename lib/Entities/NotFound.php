@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,23 +27,26 @@
  * Do not edit the class manually.
  */
 
-namespace Obada\Entities;
+namespace OpenAPI\Client\Entities;
 
 use \ArrayAccess;
-use \Obada\ObjectSerializer;
+use \OpenAPI\Client\ObjectSerializer;
 
 /**
  * NotFound Class Doc Comment
  *
  * @category Class
  * @description A typical 404 error.
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<TKey, TValue>
+ * @template TKey int|null
+ * @template TValue mixed|null  
  */
 class NotFound implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -66,6 +69,8 @@ class NotFound implements ModelInterface, ArrayAccess
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
         'code' => null,
@@ -183,8 +188,8 @@ class NotFound implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : 404;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : 'The requested resource could not be found.';
+        $this->container['code'] = $data['code'] ?? 404;
+        $this->container['message'] = $data['message'] ?? 'The requested resource could not be found.';
     }
 
     /**
@@ -226,7 +231,7 @@ class NotFound implements ModelInterface, ArrayAccess
      *
      * @param int|null $code code
      *
-     * @return $this
+     * @return self
      */
     public function setCode($code)
     {
@@ -250,7 +255,7 @@ class NotFound implements ModelInterface, ArrayAccess
      *
      * @param string|null $message message
      *
-     * @return $this
+     * @return self
      */
     public function setMessage($message)
     {
@@ -275,18 +280,18 @@ class NotFound implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[$offset]) ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */

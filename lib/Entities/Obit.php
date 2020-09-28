@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,23 +27,26 @@
  * Do not edit the class manually.
  */
 
-namespace Obada\Entities;
+namespace OpenAPI\Client\Entities;
 
 use \ArrayAccess;
-use \Obada\ObjectSerializer;
+use \OpenAPI\Client\ObjectSerializer;
 
 /**
  * Obit Class Doc Comment
  *
  * @category Class
  * @description OBADA record.
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<TKey, TValue>
+ * @template TKey int|null
+ * @template TValue mixed|null  
  */
 class Obit implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -78,6 +81,8 @@ class Obit implements ModelInterface, ArrayAccess
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
         'obitDid' => null,
@@ -243,20 +248,20 @@ class Obit implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['obitDid'] = isset($data['obitDid']) ? $data['obitDid'] : null;
-        $this->container['usn'] = isset($data['usn']) ? $data['usn'] : null;
-        $this->container['obitDidVersions'] = isset($data['obitDidVersions']) ? $data['obitDidVersions'] : null;
-        $this->container['ownerDid'] = isset($data['ownerDid']) ? $data['ownerDid'] : null;
-        $this->container['obdDid'] = isset($data['obdDid']) ? $data['obdDid'] : null;
-        $this->container['obitStatus'] = isset($data['obitStatus']) ? $data['obitStatus'] : null;
-        $this->container['manufacturer'] = isset($data['manufacturer']) ? $data['manufacturer'] : null;
-        $this->container['partNumber'] = isset($data['partNumber']) ? $data['partNumber'] : null;
-        $this->container['serialNumberHash'] = isset($data['serialNumberHash']) ? $data['serialNumberHash'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['docLinks'] = isset($data['docLinks']) ? $data['docLinks'] : null;
-        $this->container['structuredData'] = isset($data['structuredData']) ? $data['structuredData'] : null;
-        $this->container['modifiedAt'] = isset($data['modifiedAt']) ? $data['modifiedAt'] : null;
-        $this->container['rootHash'] = isset($data['rootHash']) ? $data['rootHash'] : null;
+        $this->container['obitDid'] = $data['obitDid'] ?? null;
+        $this->container['usn'] = $data['usn'] ?? null;
+        $this->container['obitDidVersions'] = $data['obitDidVersions'] ?? null;
+        $this->container['ownerDid'] = $data['ownerDid'] ?? null;
+        $this->container['obdDid'] = $data['obdDid'] ?? null;
+        $this->container['obitStatus'] = $data['obitStatus'] ?? null;
+        $this->container['manufacturer'] = $data['manufacturer'] ?? null;
+        $this->container['partNumber'] = $data['partNumber'] ?? null;
+        $this->container['serialNumberHash'] = $data['serialNumberHash'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['docLinks'] = $data['docLinks'] ?? null;
+        $this->container['structuredData'] = $data['structuredData'] ?? null;
+        $this->container['modifiedAt'] = $data['modifiedAt'] ?? null;
+        $this->container['rootHash'] = $data['rootHash'] ?? null;
     }
 
     /**
@@ -325,7 +330,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $obitDid OBADA decentralized identifier
      *
-     * @return $this
+     * @return self
      */
     public function setObitDid($obitDid)
     {
@@ -349,7 +354,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $usn Universal serial number
      *
-     * @return $this
+     * @return self
      */
     public function setUsn($usn)
     {
@@ -373,7 +378,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string[] $obitDidVersions Client generated things. First hash + last hash
      *
-     * @return $this
+     * @return self
      */
     public function setObitDidVersions($obitDidVersions)
     {
@@ -397,7 +402,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $ownerDid Owner is the person/entity that owns the obit and the physical asset it represents. Format is a DID like did:obada:owner:1234. However in the current version only test numbers will be used.
      *
-     * @return $this
+     * @return self
      */
     public function setOwnerDid($ownerDid)
     {
@@ -421,7 +426,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $obdDid Future use. The OBD DID is formatted like did:obada:obd:1234, which represents a utility token tracking orders and proofs.
      *
-     * @return $this
+     * @return self
      */
     public function setObdDid($obdDid)
     {
@@ -445,7 +450,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $obitStatus Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER
      *
-     * @return $this
+     * @return self
      */
     public function setObitStatus($obitStatus)
     {
@@ -469,7 +474,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $manufacturer Waiting more specific details from Rohi
      *
-     * @return $this
+     * @return self
      */
     public function setManufacturer($manufacturer)
     {
@@ -493,7 +498,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $partNumber Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160)
      *
-     * @return $this
+     * @return self
      */
     public function setPartNumber($partNumber)
     {
@@ -517,7 +522,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string $serialNumberHash Serial number hashed with sha256 hash function
      *
-     * @return $this
+     * @return self
      */
     public function setSerialNumberHash($serialNumberHash)
     {
@@ -541,7 +546,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param object[]|null $metadata Get description from Rohi
      *
-     * @return $this
+     * @return self
      */
     public function setMetadata($metadata)
     {
@@ -565,7 +570,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param object[]|null $docLinks docLinks
      *
-     * @return $this
+     * @return self
      */
     public function setDocLinks($docLinks)
     {
@@ -589,7 +594,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param object[]|null $structuredData structuredData
      *
-     * @return $this
+     * @return self
      */
     public function setStructuredData($structuredData)
     {
@@ -613,7 +618,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $modifiedAt modifiedAt
      *
-     * @return $this
+     * @return self
      */
     public function setModifiedAt($modifiedAt)
     {
@@ -637,7 +642,7 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param string|null $rootHash Hash calculated by SHA256 (previous Obit root hash + Obit data)
      *
-     * @return $this
+     * @return self
      */
     public function setRootHash($rootHash)
     {
@@ -662,18 +667,18 @@ class Obit implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[$offset]) ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */

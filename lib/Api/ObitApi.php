@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Obada\Api;
+namespace OpenAPI\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Obada\ApiException;
-use Obada\Configuration;
-use Obada\HeaderSelector;
-use Obada\ObjectSerializer;
+use OpenAPI\Client\ApiException;
+use OpenAPI\Client\Configuration;
+use OpenAPI\Client\HeaderSelector;
+use OpenAPI\Client\ObjectSerializer;
 
 /**
  * ObitApi Class Doc Comment
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -90,17 +90,17 @@ class ObitApi
     /**
      * Set the host index
      *
-     * @param  int Host index (required)
+     * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($host_index)
+    public function setHostIndex($hostIndex)
     {
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Get the host index
      *
-     * @return Host index
+     * @return int Host index
      */
     public function getHostIndex()
     {
@@ -118,9 +118,9 @@ class ObitApi
     /**
      * Operation createObit
      *
-     * @param  \Obada\Entities\NewObit $newObit newObit (optional)
+     * @param  \OpenAPI\Client\Entities\NewObit $newObit newObit (optional)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -132,9 +132,9 @@ class ObitApi
     /**
      * Operation createObitWithHttpInfo
      *
-     * @param  \Obada\Entities\NewObit $newObit (optional)
+     * @param  \OpenAPI\Client\Entities\NewObit $newObit (optional)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -177,7 +177,7 @@ class ObitApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\UnprocessableEntity',
+                        '\OpenAPI\Client\Entities\UnprocessableEntity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -192,7 +192,7 @@ class ObitApi
      *
      * 
      *
-     * @param  \Obada\Entities\NewObit $newObit (optional)
+     * @param  \OpenAPI\Client\Entities\NewObit $newObit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -212,7 +212,7 @@ class ObitApi
      *
      * 
      *
-     * @param  \Obada\Entities\NewObit $newObit (optional)
+     * @param  \OpenAPI\Client\Entities\NewObit $newObit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -248,7 +248,7 @@ class ObitApi
     /**
      * Create request for operation 'createObit'
      *
-     * @param  \Obada\Entities\NewObit $newObit (optional)
+     * @param  \OpenAPI\Client\Entities\NewObit $newObit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -341,7 +341,7 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -355,7 +355,7 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -398,7 +398,7 @@ class ObitApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\NotFound',
+                        '\OpenAPI\Client\Entities\NotFound',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -580,9 +580,9 @@ class ObitApi
      * @param  int $offset Number of records to skip for pagination. (optional, default to 0)
      * @param  int $limit Maximum number of records to return. (optional, default to 0)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse200
+     * @return \OpenAPI\Client\Entities\InlineResponse200
      */
     public function searchObits($serialNumberHash = null, $obitStatus = null, $manufacturer = null, $partNumber = null, $usn = null, $ownerDid = null, $offset = 0, $limit = 0)
     {
@@ -602,9 +602,9 @@ class ObitApi
      * @param  int $offset Number of records to skip for pagination. (optional, default to 0)
      * @param  int $limit Maximum number of records to return. (optional, default to 0)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Entities\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchObitsWithHttpInfo($serialNumberHash = null, $obitStatus = null, $manufacturer = null, $partNumber = null, $usn = null, $ownerDid = null, $offset = 0, $limit = 0)
     {
@@ -641,20 +641,20 @@ class ObitApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse200' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Entities\InlineResponse200' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Entities\InlineResponse200', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse200';
+            $returnType = '\OpenAPI\Client\Entities\InlineResponse200';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -673,7 +673,7 @@ class ObitApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse200',
+                        '\OpenAPI\Client\Entities\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -729,7 +729,7 @@ class ObitApi
      */
     public function searchObitsAsyncWithHttpInfo($serialNumberHash = null, $obitStatus = null, $manufacturer = null, $partNumber = null, $usn = null, $ownerDid = null, $offset = 0, $limit = 0)
     {
-        $returnType = '\Obada\Entities\InlineResponse200';
+        $returnType = '\OpenAPI\Client\Entities\InlineResponse200';
         $request = $this->searchObitsRequest($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit);
 
         return $this->client
@@ -965,7 +965,7 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -979,7 +979,7 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1022,7 +1022,7 @@ class ObitApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\NotFound',
+                        '\OpenAPI\Client\Entities\NotFound',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1197,9 +1197,9 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse2001|\Obada\Entities\NotFound
+     * @return \OpenAPI\Client\Entities\InlineResponse2001|\OpenAPI\Client\Entities\NotFound
      */
     public function showObitHistory($obitDid)
     {
@@ -1212,9 +1212,9 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse2001|\Obada\Entities\NotFound, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Entities\InlineResponse2001|\OpenAPI\Client\Entities\NotFound, HTTP status code, HTTP response headers (array of strings)
      */
     public function showObitHistoryWithHttpInfo($obitDid)
     {
@@ -1251,32 +1251,32 @@ class ObitApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse2001' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Entities\InlineResponse2001' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Entities\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Obada\Entities\NotFound' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Entities\NotFound' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\NotFound', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Entities\NotFound', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse2001';
+            $returnType = '\OpenAPI\Client\Entities\InlineResponse2001';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1295,7 +1295,7 @@ class ObitApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse2001',
+                        '\OpenAPI\Client\Entities\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1303,7 +1303,7 @@ class ObitApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\NotFound',
+                        '\OpenAPI\Client\Entities\NotFound',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1345,7 +1345,7 @@ class ObitApi
      */
     public function showObitHistoryAsyncWithHttpInfo($obitDid)
     {
-        $returnType = '\Obada\Entities\InlineResponse2001';
+        $returnType = '\OpenAPI\Client\Entities\InlineResponse2001';
         $request = $this->showObitHistoryRequest($obitDid);
 
         return $this->client
@@ -1489,7 +1489,7 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1503,7 +1503,7 @@ class ObitApi
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
-     * @throws \Obada\ApiException on non-2xx response
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1546,7 +1546,7 @@ class ObitApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\NotFound',
+                        '\OpenAPI\Client\Entities\NotFound',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

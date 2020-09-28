@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,23 +27,26 @@
  * Do not edit the class manually.
  */
 
-namespace Obada\Entities;
+namespace OpenAPI\Client\Entities;
 
 use \ArrayAccess;
-use \Obada\ObjectSerializer;
+use \OpenAPI\Client\ObjectSerializer;
 
 /**
  * ObitHistory Class Doc Comment
  *
  * @category Class
  * @description New Obit request payload.
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<TKey, TValue>
+ * @template TKey int|null
+ * @template TValue mixed|null  
  */
 class ObitHistory implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -70,6 +73,8 @@ class ObitHistory implements ModelInterface, ArrayAccess
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
         'obitDid' => null,
@@ -203,12 +208,12 @@ class ObitHistory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['obitDid'] = isset($data['obitDid']) ? $data['obitDid'] : null;
-        $this->container['event'] = isset($data['event']) ? $data['event'] : null;
-        $this->container['oldValues'] = isset($data['oldValues']) ? $data['oldValues'] : null;
-        $this->container['newValues'] = isset($data['newValues']) ? $data['newValues'] : null;
-        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
-        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
+        $this->container['obitDid'] = $data['obitDid'] ?? null;
+        $this->container['event'] = $data['event'] ?? null;
+        $this->container['oldValues'] = $data['oldValues'] ?? null;
+        $this->container['newValues'] = $data['newValues'] ?? null;
+        $this->container['createdAt'] = $data['createdAt'] ?? null;
+        $this->container['updatedAt'] = $data['updatedAt'] ?? null;
     }
 
     /**
@@ -254,7 +259,7 @@ class ObitHistory implements ModelInterface, ArrayAccess
      *
      * @param string|null $obitDid OBADA decentralized identifier (max length Rohi?)
      *
-     * @return $this
+     * @return self
      */
     public function setObitDid($obitDid)
     {
@@ -282,7 +287,7 @@ class ObitHistory implements ModelInterface, ArrayAccess
      *
      * @param string|null $event History event
      *
-     * @return $this
+     * @return self
      */
     public function setEvent($event)
     {
@@ -306,7 +311,7 @@ class ObitHistory implements ModelInterface, ArrayAccess
      *
      * @param object|null $oldValues oldValues
      *
-     * @return $this
+     * @return self
      */
     public function setOldValues($oldValues)
     {
@@ -330,7 +335,7 @@ class ObitHistory implements ModelInterface, ArrayAccess
      *
      * @param object|null $newValues newValues
      *
-     * @return $this
+     * @return self
      */
     public function setNewValues($newValues)
     {
@@ -354,7 +359,7 @@ class ObitHistory implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $createdAt createdAt
      *
-     * @return $this
+     * @return self
      */
     public function setCreatedAt($createdAt)
     {
@@ -378,7 +383,7 @@ class ObitHistory implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $updatedAt updatedAt
      *
-     * @return $this
+     * @return self
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -403,18 +408,18 @@ class ObitHistory implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[$offset]) ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */

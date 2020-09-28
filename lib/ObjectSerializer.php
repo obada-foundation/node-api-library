@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace Obada;
+namespace OpenAPI\Client;
 
-use Obada\Entities\ModelInterface;
+use OpenAPI\Client\Entities\ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment
  *
  * @category Class
- * @package  Obada
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -61,20 +61,26 @@ class ObjectSerializer
      * @param string $type   the OpenAPIToolsType of the data
      * @param string $format the format of the OpenAPITools type of the data
      *
-     * @return string|object serialized form of $data
+     * @return scalar|object|array|null serialized form of $data
      */
     public static function sanitizeForSerialization($data, $type = null, $format = null)
     {
         if (is_scalar($data) || null === $data) {
             return $data;
-        } elseif ($data instanceof \DateTime) {
+        }
+
+        if ($data instanceof \DateTime) {
             return ($format === 'date') ? $data->format('Y-m-d') : $data->format(self::$dateTimeFormat);
-        } elseif (is_array($data)) {
+        }
+
+        if (is_array($data)) {
             foreach ($data as $property => $value) {
                 $data[$property] = self::sanitizeForSerialization($value);
             }
             return $data;
-        } elseif (is_object($data)) {
+        }
+
+        if (is_object($data)) {
             $values = [];
             if ($data instanceof ModelInterface) {
                 $formats = $data::openAPIFormats();
@@ -260,7 +266,9 @@ class ObjectSerializer
     {
         if (null === $data) {
             return null;
-        } elseif (strcasecmp(substr($class, -2), '[]') === 0) {
+        }
+
+        if (strcasecmp(substr($class, -2), '[]') === 0) {
             $data = is_string($data) ? json_decode($data) : $data;
             
             if (!is_array($data)) {
@@ -273,7 +281,9 @@ class ObjectSerializer
                 $values[] = self::deserialize($value, $subClass, null);
             }
             return $values;
-        } elseif (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
+        }
+
+        if (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
             $data = is_string($data) ? json_decode($data) : $data;
             settype($data, 'array');
             $inner = substr($class, 4, -1);
@@ -286,10 +296,14 @@ class ObjectSerializer
                 }
             }
             return $deserialized;
-        } elseif ($class === 'object') {
+        }
+
+        if ($class === 'object') {
             settype($data, 'array');
             return $data;
-        } elseif ($class === '\DateTime') {
+        }
+
+        if ($class === '\DateTime') {
             // Some API's return an invalid, empty string as a
             // date-time property. DateTime::__construct() will return
             // the current time for empty input which is probably not
@@ -301,10 +315,14 @@ class ObjectSerializer
             } else {
                 return null;
             }
-        } elseif (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
+        }
+
+        if (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
             settype($data, $class);
             return $data;
-        } elseif ($class === '\SplFileObject') {
+        }
+
+        if ($class === '\SplFileObject') {
             /** @var \Psr\Http\Message\StreamInterface $data */
 
             // determine file name
@@ -333,7 +351,7 @@ class ObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\Obada\Model\\' . $data->{$discriminator};
+                $subclass = '\OpenAPI\Client\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }
