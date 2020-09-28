@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Entities;
+namespace Obada\Entities;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Obada\ObjectSerializer;
 
 /**
  * Obit Class Doc Comment
  *
  * @category Class
  * @description OBADA record.
- * @package  OpenAPI\Client
+ * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

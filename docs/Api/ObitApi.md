@@ -1,4 +1,4 @@
-# OpenAPI\Client\ObitApi
+# Obada\ObitApi
 
 All URIs are relative to *https://dev.api.obada.io*
 
@@ -28,12 +28,12 @@ Creates a new obit.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new OpenAPI\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$newObit = new \OpenAPI\Client\Entities\NewObit(); // \OpenAPI\Client\Entities\NewObit | 
+$newObit = new \Obada\Entities\NewObit(); // \Obada\Entities\NewObit | 
 
 try {
     $apiInstance->createObit($newObit);
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newObit** | [**\OpenAPI\Client\Entities\NewObit**](../Model/NewObit.md)|  | [optional]
+ **newObit** | [**\Obada\Entities\NewObit**](../Model/NewObit.md)|  | [optional]
 
 ### Return type
 
@@ -83,7 +83,7 @@ Changes Obit status to DISABLED_BY_OWNER
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new OpenAPI\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -125,7 +125,7 @@ No authorization required
 
 ## searchObits
 
-> \OpenAPI\Client\Entities\InlineResponse200 searchObits($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit)
+> \Obada\Entities\InlineResponse200 searchObits($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit)
 
 
 
@@ -138,7 +138,7 @@ Search obits by given filters.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new OpenAPI\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Entities\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ Shows the information about single Obit by given ObitDID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new OpenAPI\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -250,7 +250,7 @@ No authorization required
 
 ## showObitHistory
 
-> \OpenAPI\Client\Entities\InlineResponse2001 showObitHistory($obitDid)
+> \Obada\Entities\InlineResponse2001 showObitHistory($obitDid)
 
 
 
@@ -263,7 +263,7 @@ Shows the history of changes by given Obit with ObitDID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new OpenAPI\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ Updates Obit by given ObitDID with payload
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new OpenAPI\Client\Api\ObitApi(
+$apiInstance = new Obada\Api\ObitApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

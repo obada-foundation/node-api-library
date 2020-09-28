@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Entities;
+namespace Obada\Entities;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Obada\ObjectSerializer;
 
 /**
  * InlineResponse200 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Entities\Obit[]'
+        'data' => '\Obada\Entities\Obit[]'
     ];
 
     /**
@@ -212,7 +212,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Entities\Obit[]|null
+     * @return \Obada\Entities\Obit[]|null
      */
     public function getData()
     {
@@ -222,7 +222,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Entities\Obit[]|null $data data
+     * @param \Obada\Entities\Obit[]|null $data data
      *
      * @return self
      */
