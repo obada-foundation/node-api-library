@@ -306,7 +306,7 @@ No authorization required
 
 ## updateObit
 
-> updateObit($obitDid)
+> updateObit($obitDid, $obit)
 
 
 
@@ -325,9 +325,10 @@ $apiInstance = new Obada\Api\ObitApi(
     new GuzzleHttp\Client()
 );
 $obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
+$obit = new \Obada\Entities\Obit(); // \Obada\Entities\Obit | 
 
 try {
-    $apiInstance->updateObit($obitDid);
+    $apiInstance->updateObit($obitDid, $obit);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->updateObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -340,6 +341,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **obitDid** | **string**| The given ObitDID argument |
+ **obit** | [**\Obada\Entities\Obit**](../Model/Obit.md)|  | [optional]
 
 ### Return type
 
@@ -351,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

@@ -1488,28 +1488,30 @@ class ObitApi
      * Operation updateObit
      *
      * @param  string $obitDid The given ObitDID argument (required)
+     * @param  \Obada\Entities\Obit $obit obit (optional)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateObit($obitDid)
+    public function updateObit($obitDid, $obit = null)
     {
-        $this->updateObitWithHttpInfo($obitDid);
+        $this->updateObitWithHttpInfo($obitDid, $obit);
     }
 
     /**
      * Operation updateObitWithHttpInfo
      *
      * @param  string $obitDid The given ObitDID argument (required)
+     * @param  \Obada\Entities\Obit $obit (optional)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateObitWithHttpInfo($obitDid)
+    public function updateObitWithHttpInfo($obitDid, $obit = null)
     {
-        $request = $this->updateObitRequest($obitDid);
+        $request = $this->updateObitRequest($obitDid, $obit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1562,13 +1564,14 @@ class ObitApi
      * 
      *
      * @param  string $obitDid The given ObitDID argument (required)
+     * @param  \Obada\Entities\Obit $obit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateObitAsync($obitDid)
+    public function updateObitAsync($obitDid, $obit = null)
     {
-        return $this->updateObitAsyncWithHttpInfo($obitDid)
+        return $this->updateObitAsyncWithHttpInfo($obitDid, $obit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1582,14 +1585,15 @@ class ObitApi
      * 
      *
      * @param  string $obitDid The given ObitDID argument (required)
+     * @param  \Obada\Entities\Obit $obit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateObitAsyncWithHttpInfo($obitDid)
+    public function updateObitAsyncWithHttpInfo($obitDid, $obit = null)
     {
         $returnType = '';
-        $request = $this->updateObitRequest($obitDid);
+        $request = $this->updateObitRequest($obitDid, $obit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1618,11 +1622,12 @@ class ObitApi
      * Create request for operation 'updateObit'
      *
      * @param  string $obitDid The given ObitDID argument (required)
+     * @param  \Obada\Entities\Obit $obit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateObitRequest($obitDid)
+    protected function updateObitRequest($obitDid, $obit = null)
     {
         // verify the required parameter 'obitDid' is set
         if ($obitDid === null || (is_array($obitDid) && count($obitDid) === 0)) {
@@ -1651,6 +1656,9 @@ class ObitApi
 
         // body params
         $_tempBody = null;
+        if (isset($obit)) {
+            $_tempBody = $obit;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1659,7 +1667,7 @@ class ObitApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
