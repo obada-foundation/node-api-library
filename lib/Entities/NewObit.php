@@ -69,9 +69,9 @@ class NewObit implements ModelInterface, ArrayAccess
         'manufacturer' => 'string',
         'partNumber' => 'string',
         'serialNumberHash' => 'string',
-        'metadata' => '\Obada\Entities\MetaDataRecord[]',
-        'docLinks' => '\Obada\Entities\DocumentLink[]',
-        'structuredData' => '\Obada\Entities\StructureDataRecord[]',
+        'metadata' => 'object[]',
+        'docLinks' => 'object[]',
+        'structuredData' => 'object[]',
         'modifiedAt' => '\DateTime'
     ];
 
@@ -538,7 +538,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \Obada\Entities\MetaDataRecord[]|null
+     * @return object[]|null
      */
     public function getMetadata()
     {
@@ -548,7 +548,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \Obada\Entities\MetaDataRecord[]|null $metadata Get description from Rohi
+     * @param object[]|null $metadata Get description from Rohi
      *
      * @return self
      */
@@ -562,7 +562,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets docLinks
      *
-     * @return \Obada\Entities\DocumentLink[]|null
+     * @return object[]|null
      */
     public function getDocLinks()
     {
@@ -572,7 +572,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets docLinks
      *
-     * @param \Obada\Entities\DocumentLink[]|null $docLinks To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1=hash-of-document. Note this does not yet adhere to the hashlink standard.
+     * @param object[]|null $docLinks To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1=hash-of-document. Note this does not yet adhere to the hashlink standard.
      *
      * @return self
      */
@@ -586,7 +586,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Gets structuredData
      *
-     * @return \Obada\Entities\StructureDataRecord[]|null
+     * @return object[]|null
      */
     public function getStructuredData()
     {
@@ -596,7 +596,7 @@ class NewObit implements ModelInterface, ArrayAccess
     /**
      * Sets structuredData
      *
-     * @param \Obada\Entities\StructureDataRecord[]|null $structuredData Same as metadata but bigger. Key (string) => Value (string) (hash per line sha256(key + value))
+     * @param object[]|null $structuredData Same as metadata but bigger. Key (string) => Value (string) (hash per line sha256(key + value))
      *
      * @return self
      */

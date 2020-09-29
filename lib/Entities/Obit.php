@@ -70,9 +70,9 @@ class Obit implements ModelInterface, ArrayAccess
         'manufacturer' => 'string',
         'partNumber' => 'string',
         'serialNumberHash' => 'string',
-        'metadata' => '\Obada\Entities\MetaDataRecord[]',
-        'docLinks' => '\Obada\Entities\DocumentLink[]',
-        'structuredData' => '\Obada\Entities\MetaDataRecord[]',
+        'metadata' => 'object[]',
+        'docLinks' => 'object[]',
+        'structuredData' => 'object[]',
         'modifiedAt' => '\DateTime',
         'rootHash' => 'string'
     ];
@@ -534,7 +534,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \Obada\Entities\MetaDataRecord[]|null
+     * @return object[]|null
      */
     public function getMetadata()
     {
@@ -544,7 +544,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \Obada\Entities\MetaDataRecord[]|null $metadata Get description from Rohi
+     * @param object[]|null $metadata Get description from Rohi
      *
      * @return self
      */
@@ -558,7 +558,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Gets docLinks
      *
-     * @return \Obada\Entities\DocumentLink[]|null
+     * @return object[]|null
      */
     public function getDocLinks()
     {
@@ -568,7 +568,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets docLinks
      *
-     * @param \Obada\Entities\DocumentLink[]|null $docLinks docLinks
+     * @param object[]|null $docLinks docLinks
      *
      * @return self
      */
@@ -582,7 +582,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Gets structuredData
      *
-     * @return \Obada\Entities\MetaDataRecord[]|null
+     * @return object[]|null
      */
     public function getStructuredData()
     {
@@ -592,7 +592,7 @@ class Obit implements ModelInterface, ArrayAccess
     /**
      * Sets structuredData
      *
-     * @param \Obada\Entities\MetaDataRecord[]|null $structuredData structuredData
+     * @param object[]|null $structuredData structuredData
      *
      * @return self
      */
