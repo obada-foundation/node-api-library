@@ -1,6 +1,6 @@
 <?php
 /**
- * Obit
+ * NewObit
  *
  * PHP version 7.2
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * Obit Class Doc Comment
+ * NewObit Class Doc Comment
  *
  * @category Class
- * @description OBADA record.
+ * @description New Obit request body.
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null  
  */
-class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
+class NewObit implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Obit';
+    protected static $openAPIModelName = 'NewObit';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,7 +63,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'obitDid' => 'string',
         'usn' => 'string',
-        'obitDidVersions' => 'string[]',
         'ownerDid' => 'string',
         'obdDid' => 'string',
         'obitStatus' => 'string',
@@ -73,8 +72,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'metadata' => '\Obada\Entities\MetaDataRecord[]',
         'docLinks' => '\Obada\Entities\DocumentLink[]',
         'structuredData' => '\Obada\Entities\StructureDataRecord[]',
-        'modifiedAt' => '\DateTime',
-        'rootHash' => 'string'
+        'modifiedAt' => '\DateTime'
     ];
 
     /**
@@ -87,7 +85,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'obitDid' => null,
         'usn' => null,
-        'obitDidVersions' => null,
         'ownerDid' => null,
         'obdDid' => null,
         'obitStatus' => null,
@@ -97,8 +94,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'metadata' => null,
         'docLinks' => null,
         'structuredData' => null,
-        'modifiedAt' => 'date-time',
-        'rootHash' => null
+        'modifiedAt' => 'date-time'
     ];
 
     /**
@@ -130,7 +126,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'obitDid' => 'obit_did',
         'usn' => 'usn',
-        'obitDidVersions' => 'obit_did_versions',
         'ownerDid' => 'owner_did',
         'obdDid' => 'obd_did',
         'obitStatus' => 'obit_status',
@@ -140,8 +135,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'metadata' => 'metadata',
         'docLinks' => 'doc_links',
         'structuredData' => 'structured_data',
-        'modifiedAt' => 'modified_at',
-        'rootHash' => 'root_hash'
+        'modifiedAt' => 'modified_at'
     ];
 
     /**
@@ -152,7 +146,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'obitDid' => 'setObitDid',
         'usn' => 'setUsn',
-        'obitDidVersions' => 'setObitDidVersions',
         'ownerDid' => 'setOwnerDid',
         'obdDid' => 'setObdDid',
         'obitStatus' => 'setObitStatus',
@@ -162,8 +155,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'metadata' => 'setMetadata',
         'docLinks' => 'setDocLinks',
         'structuredData' => 'setStructuredData',
-        'modifiedAt' => 'setModifiedAt',
-        'rootHash' => 'setRootHash'
+        'modifiedAt' => 'setModifiedAt'
     ];
 
     /**
@@ -174,7 +166,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'obitDid' => 'getObitDid',
         'usn' => 'getUsn',
-        'obitDidVersions' => 'getObitDidVersions',
         'ownerDid' => 'getOwnerDid',
         'obdDid' => 'getObdDid',
         'obitStatus' => 'getObitStatus',
@@ -184,8 +175,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'metadata' => 'getMetadata',
         'docLinks' => 'getDocLinks',
         'structuredData' => 'getStructuredData',
-        'modifiedAt' => 'getModifiedAt',
-        'rootHash' => 'getRootHash'
+        'modifiedAt' => 'getModifiedAt'
     ];
 
     /**
@@ -229,8 +219,29 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const OBIT_STATUS_FUNCTIONAL = 'FUNCTIONAL';
+    const OBIT_STATUS_NON_FUNCTIONAL = 'NON_FUNCTIONAL';
+    const OBIT_STATUS_DISPOSED = 'DISPOSED';
+    const OBIT_STATUS_STOLEN = 'STOLEN';
+    const OBIT_STATUS_DISABLED_BY_OWNER = 'DISABLED_BY_OWNER';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObitStatusAllowableValues()
+    {
+        return [
+            self::OBIT_STATUS_FUNCTIONAL,
+            self::OBIT_STATUS_NON_FUNCTIONAL,
+            self::OBIT_STATUS_DISPOSED,
+            self::OBIT_STATUS_STOLEN,
+            self::OBIT_STATUS_DISABLED_BY_OWNER,
+        ];
+    }
     
 
     /**
@@ -250,7 +261,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['obitDid'] = $data['obitDid'] ?? null;
         $this->container['usn'] = $data['usn'] ?? null;
-        $this->container['obitDidVersions'] = $data['obitDidVersions'] ?? null;
         $this->container['ownerDid'] = $data['ownerDid'] ?? null;
         $this->container['obdDid'] = $data['obdDid'] ?? null;
         $this->container['obitStatus'] = $data['obitStatus'] ?? null;
@@ -261,7 +271,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['docLinks'] = $data['docLinks'] ?? null;
         $this->container['structuredData'] = $data['structuredData'] ?? null;
         $this->container['modifiedAt'] = $data['modifiedAt'] ?? null;
-        $this->container['rootHash'] = $data['rootHash'] ?? null;
     }
 
     /**
@@ -276,21 +285,25 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['obitDid'] === null) {
             $invalidProperties[] = "'obitDid' can't be null";
         }
+        if ((mb_strlen($this->container['obitDid']) > 256)) {
+            $invalidProperties[] = "invalid value for 'obitDid', the character length must be smaller than or equal to 256.";
+        }
+
         if ($this->container['usn'] === null) {
             $invalidProperties[] = "'usn' can't be null";
-        }
-        if ($this->container['obitDidVersions'] === null) {
-            $invalidProperties[] = "'obitDidVersions' can't be null";
         }
         if ($this->container['ownerDid'] === null) {
             $invalidProperties[] = "'ownerDid' can't be null";
         }
-        if ($this->container['obdDid'] === null) {
-            $invalidProperties[] = "'obdDid' can't be null";
+        $allowedValues = $this->getObitStatusAllowableValues();
+        if (!is_null($this->container['obitStatus']) && !in_array($this->container['obitStatus'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'obitStatus', must be one of '%s'",
+                $this->container['obitStatus'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['obitStatus'] === null) {
-            $invalidProperties[] = "'obitStatus' can't be null";
-        }
+
         if ($this->container['manufacturer'] === null) {
             $invalidProperties[] = "'manufacturer' can't be null";
         }
@@ -299,6 +312,9 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['serialNumberHash'] === null) {
             $invalidProperties[] = "'serialNumberHash' can't be null";
+        }
+        if ($this->container['modifiedAt'] === null) {
+            $invalidProperties[] = "'modifiedAt' can't be null";
         }
         return $invalidProperties;
     }
@@ -328,12 +344,16 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets obitDid
      *
-     * @param string $obitDid OBADA decentralized identifier
+     * @param string $obitDid OBADA decentralized identifier (max length Rohi?)
      *
      * @return self
      */
     public function setObitDid($obitDid)
     {
+        if ((mb_strlen($obitDid) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $obitDid when calling NewObit., must be smaller than or equal to 256.');
+        }
+
         $this->container['obitDid'] = $obitDid;
 
         return $this;
@@ -352,37 +372,13 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets usn
      *
-     * @param string $usn Universal serial number
+     * @param string $usn Test An 8-12 character “URL Shortened” obit. Create the USN by Base(58) encoding the OBIT ID. Take the first 8 characters. Check for duplicates. With 16 million OBITs there is a 40% chance of collision. If so, add 4 characters. Repeat as necessary until a unique USN is generated.
      *
      * @return self
      */
     public function setUsn($usn)
     {
         $this->container['usn'] = $usn;
-
-        return $this;
-    }
-
-    /**
-     * Gets obitDidVersions
-     *
-     * @return string[]
-     */
-    public function getObitDidVersions()
-    {
-        return $this->container['obitDidVersions'];
-    }
-
-    /**
-     * Sets obitDidVersions
-     *
-     * @param string[] $obitDidVersions Client generated things. First hash + last hash
-     *
-     * @return self
-     */
-    public function setObitDidVersions($obitDidVersions)
-    {
-        $this->container['obitDidVersions'] = $obitDidVersions;
 
         return $this;
     }
@@ -414,7 +410,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets obdDid
      *
-     * @return string
+     * @return string|null
      */
     public function getObdDid()
     {
@@ -424,7 +420,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets obdDid
      *
-     * @param string $obdDid Future use. The OBD DID is formatted like did:obada:obd:1234, which represents a utility token tracking orders and proofs.
+     * @param string|null $obdDid Future use. The OBD DID is formatted like did:obada:obd:1234, which represents a utility token tracking orders and proofs.
      *
      * @return self
      */
@@ -438,7 +434,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets obitStatus
      *
-     * @return string
+     * @return string|null
      */
     public function getObitStatus()
     {
@@ -448,12 +444,22 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets obitStatus
      *
-     * @param string $obitStatus Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER
+     * @param string|null $obitStatus Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER
      *
      * @return self
      */
     public function setObitStatus($obitStatus)
     {
+        $allowedValues = $this->getObitStatusAllowableValues();
+        if (!is_null($obitStatus) && !in_array($obitStatus, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'obitStatus', must be one of '%s'",
+                    $obitStatus,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['obitStatus'] = $obitStatus;
 
         return $this;
@@ -568,7 +574,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets docLinks
      *
-     * @param \Obada\Entities\DocumentLink[]|null $docLinks docLinks
+     * @param \Obada\Entities\DocumentLink[]|null $docLinks To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1=hash-of-document. Note this does not yet adhere to the hashlink standard.
      *
      * @return self
      */
@@ -592,7 +598,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets structuredData
      *
-     * @param \Obada\Entities\StructureDataRecord[]|null $structuredData structuredData
+     * @param \Obada\Entities\StructureDataRecord[]|null $structuredData Same as metadata but bigger. Key (string) => Value (string) (hash per line sha256(key + value))
      *
      * @return self
      */
@@ -606,7 +612,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets modifiedAt
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getModifiedAt()
     {
@@ -616,37 +622,13 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modifiedAt
      *
-     * @param \DateTime|null $modifiedAt modifiedAt
+     * @param \DateTime $modifiedAt modifiedAt
      *
      * @return self
      */
     public function setModifiedAt($modifiedAt)
     {
         $this->container['modifiedAt'] = $modifiedAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets rootHash
-     *
-     * @return string|null
-     */
-    public function getRootHash()
-    {
-        return $this->container['rootHash'];
-    }
-
-    /**
-     * Sets rootHash
-     *
-     * @param string|null $rootHash Hash calculated by SHA256 (previous Obit root hash + Obit data)
-     *
-     * @return self
-     */
-    public function setRootHash($rootHash)
-    {
-        $this->container['rootHash'] = $rootHash;
 
         return $this;
     }
