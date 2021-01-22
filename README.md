@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/obada-protocol/php-client-library.git"
+      "url": "https://github.com/obada-protocol/node-api-library.git"
     }
   ],
   "require": {
-    "obada-protocol/php-client-library": "*@dev"
+    "obada-protocol/node-api-library": "*@dev"
   }
 }
 ```

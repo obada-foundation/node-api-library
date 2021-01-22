@@ -36,7 +36,7 @@ use \Obada\ObjectSerializer;
  * DocumentLink Class Doc Comment
  *
  * @category Class
- * @description Document hashlink (https://tools.ietf.org/html/draft-sporny-hashlink-06)
+ * @description Document hashlink
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
