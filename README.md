@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/obada-protocol/node-api-library.git"
+      "url": "https://github.com/obada-foundation/node-api-library.git"
     }
   ],
   "require": {
-    "obada-protocol/node-api-library": "*@dev"
+    "obada-foundation/node-api-library": "*@dev"
   }
 }
 ```
@@ -55,10 +55,10 @@ $apiInstance = new Obada\Api\ObitApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$newObit = new \Obada\Entities\NewObit(); // \Obada\Entities\NewObit
+$obit = new \Obada\Entities\Obit(); // \Obada\Entities\Obit
 
 try {
-    $apiInstance->createObit($newObit);
+    $apiInstance->createObit($obit);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->createObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -84,7 +84,6 @@ Class | Method | HTTP request | Description
 - [InlineResponse200](docs/Model/InlineResponse200.md)
 - [InlineResponse2001](docs/Model/InlineResponse2001.md)
 - [MetaDataRecord](docs/Model/MetaDataRecord.md)
-- [NewObit](docs/Model/NewObit.md)
 - [NotFound](docs/Model/NotFound.md)
 - [Obit](docs/Model/Obit.md)
 - [ObitHistory](docs/Model/ObitHistory.md)
