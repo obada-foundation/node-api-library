@@ -300,9 +300,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['serialNumberHash'] === null) {
             $invalidProperties[] = "'serialNumberHash' can't be null";
         }
-        if ($this->container['rootHash'] === null) {
-            $invalidProperties[] = "'rootHash' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -355,7 +352,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets usn
      *
-     * @param string $usn Test An 8-12 character “URL Shortened” obit. Create the USN by Base(58) encoding the OBIT ID. Take the first 8 characters. Check for duplicates. With 16 million OBITs there is a 40% chance of collision. If so, add 4 characters. Repeat as necessary until a unique USN is generated.
+     * @param string $usn Universal serial number
      *
      * @return self
      */
@@ -571,7 +568,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets docLinks
      *
-     * @param \Obada\Entities\DocumentLink[]|null $docLinks To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1=hash-of-document. Note this does not yet adhere to the hashlink standard.
+     * @param \Obada\Entities\DocumentLink[]|null $docLinks docLinks
      *
      * @return self
      */
@@ -595,7 +592,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets structuredData
      *
-     * @param \Obada\Entities\StructureDataRecord[]|null $structuredData Same as metadata but bigger. Key (string) => Value (string) (hash per line sha256(key + value))
+     * @param \Obada\Entities\StructureDataRecord[]|null $structuredData structuredData
      *
      * @return self
      */
@@ -633,7 +630,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets rootHash
      *
-     * @return string
+     * @return string|null
      */
     public function getRootHash()
     {
@@ -643,7 +640,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rootHash
      *
-     * @param string $rootHash Hash calculated by SHA256 (previous Obit root hash + Obit data). TODO: Discuss root hash with Rohi.
+     * @param string|null $rootHash Hash calculated by SHA256 (previous Obit root hash + Obit data)
      *
      * @return self
      */

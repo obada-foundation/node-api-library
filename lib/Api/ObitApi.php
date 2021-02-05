@@ -118,29 +118,29 @@ class ObitApi
     /**
      * Operation createObit
      *
-     * @param  \Obada\Entities\Obit $obit obit (optional)
+     * @param  \Obada\Entities\NewObit $newObit newObit (optional)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createObit($obit = null)
+    public function createObit($newObit = null)
     {
-        $this->createObitWithHttpInfo($obit);
+        $this->createObitWithHttpInfo($newObit);
     }
 
     /**
      * Operation createObitWithHttpInfo
      *
-     * @param  \Obada\Entities\Obit $obit (optional)
+     * @param  \Obada\Entities\NewObit $newObit (optional)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createObitWithHttpInfo($obit = null)
+    public function createObitWithHttpInfo($newObit = null)
     {
-        $request = $this->createObitRequest($obit);
+        $request = $this->createObitRequest($newObit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -192,14 +192,14 @@ class ObitApi
      *
      * 
      *
-     * @param  \Obada\Entities\Obit $obit (optional)
+     * @param  \Obada\Entities\NewObit $newObit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObitAsync($obit = null)
+    public function createObitAsync($newObit = null)
     {
-        return $this->createObitAsyncWithHttpInfo($obit)
+        return $this->createObitAsyncWithHttpInfo($newObit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -212,15 +212,15 @@ class ObitApi
      *
      * 
      *
-     * @param  \Obada\Entities\Obit $obit (optional)
+     * @param  \Obada\Entities\NewObit $newObit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObitAsyncWithHttpInfo($obit = null)
+    public function createObitAsyncWithHttpInfo($newObit = null)
     {
         $returnType = '';
-        $request = $this->createObitRequest($obit);
+        $request = $this->createObitRequest($newObit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -248,12 +248,12 @@ class ObitApi
     /**
      * Create request for operation 'createObit'
      *
-     * @param  \Obada\Entities\Obit $obit (optional)
+     * @param  \Obada\Entities\NewObit $newObit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createObitRequest($obit = null)
+    public function createObitRequest($newObit = null)
     {
 
         $resourcePath = '/obits';
@@ -279,11 +279,11 @@ class ObitApi
         }
 
         // for model (json/xml)
-        if (isset($obit)) {
+        if (isset($newObit)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($obit));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($newObit));
             } else {
-                $httpBody = $obit;
+                $httpBody = $newObit;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
