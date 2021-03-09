@@ -63,7 +63,7 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'code' => 'int',
         'message' => 'string',
-        'errors' => 'map[string,string[]]'
+        'errors' => 'array<string,string[]>'
     ];
 
     /**
@@ -273,7 +273,7 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets errors
      *
-     * @return map[string,string[]]|null
+     * @return array<string,string[]>|null
      */
     public function getErrors()
     {
@@ -283,7 +283,7 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets errors
      *
-     * @param map[string,string[]]|null $errors errors
+     * @param array<string,string[]>|null $errors errors
      *
      * @return self
      */
