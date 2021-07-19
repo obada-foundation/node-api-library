@@ -50,17 +50,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Obada\Api\ObitApi(
+$apiInstance = new Obada\Api\HelperApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$obit = new \Obada\Entities\Obit(); // \Obada\Entities\Obit
+$manufacturer = Apple; // string | Device Id (Required)
+$partNumber = 123456789; // string | Part Number (Required)
+$serialNumber = 123456789; // string | Serial Number (Required)
 
 try {
-    $apiInstance->createObit($obit);
+    $result = $apiInstance->generateObitDef($manufacturer, $partNumber, $serialNumber);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObitApi->createObit: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HelperApi->generateObitDef: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -71,6 +74,7 @@ All URIs are relative to *https://dev.api.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*HelperApi* | [**generateObitDef**](docs/Api/HelperApi.md#generateobitdef) | **GET** /api/obit/definition | Generate Obit Definition
 *ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
 *ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
 *ObitApi* | [**searchObits**](docs/Api/ObitApi.md#searchobits) | **GET** /obits | 
@@ -86,6 +90,7 @@ Class | Method | HTTP request | Description
 - [MetaDataRecord](docs/Model/MetaDataRecord.md)
 - [NotFound](docs/Model/NotFound.md)
 - [Obit](docs/Model/Obit.md)
+- [ObitDefinition](docs/Model/ObitDefinition.md)
 - [ObitHistory](docs/Model/ObitHistory.md)
 - [StructureDataRecord](docs/Model/StructureDataRecord.md)
 - [UnprocessableEntity](docs/Model/UnprocessableEntity.md)

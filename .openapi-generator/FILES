@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 composer.json
+docs/Api/HelperApi.md
 docs/Api/ObitApi.md
 docs/Model/DocumentLink.md
 docs/Model/InlineResponse200.md
@@ -10,10 +11,12 @@ docs/Model/InlineResponse2001.md
 docs/Model/MetaDataRecord.md
 docs/Model/NotFound.md
 docs/Model/Obit.md
+docs/Model/ObitDefinition.md
 docs/Model/ObitHistory.md
 docs/Model/StructureDataRecord.md
 docs/Model/UnprocessableEntity.md
 git_push.sh
+lib/Api/HelperApi.php
 lib/Api/ObitApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -24,6 +27,7 @@ lib/Entities/MetaDataRecord.php
 lib/Entities/ModelInterface.php
 lib/Entities/NotFound.php
 lib/Entities/Obit.php
+lib/Entities/ObitDefinition.php
 lib/Entities/ObitHistory.php
 lib/Entities/StructureDataRecord.php
 lib/Entities/UnprocessableEntity.php

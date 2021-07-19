@@ -1,6 +1,6 @@
 <?php
 /**
- * UnprocessableEntity
+ * ObitDefinition
  *
  * PHP version 7.2
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * UnprocessableEntity Class Doc Comment
+ * ObitDefinition Class Doc Comment
  *
  * @category Class
- * @description A typical 422 error.
+ * @description New Obit def
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializable
+class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UnprocessableEntity';
+    protected static $openAPIModelName = 'ObitDefinition';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,9 +61,10 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'int',
-        'message' => 'string',
-        'errors' => 'array<string,string[]>'
+        'serialHash' => 'string',
+        'usn' => 'string',
+        'obitDid' => 'string',
+        'usnBase58' => 'string'
     ];
 
     /**
@@ -74,9 +75,10 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'code' => null,
-        'message' => null,
-        'errors' => null
+        'serialHash' => null,
+        'usn' => null,
+        'obitDid' => null,
+        'usnBase58' => null
     ];
 
     /**
@@ -106,9 +108,10 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'errors' => 'errors'
+        'serialHash' => 'serial_hash',
+        'usn' => 'usn',
+        'obitDid' => 'obit_did',
+        'usnBase58' => 'usn_base58'
     ];
 
     /**
@@ -117,9 +120,10 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'errors' => 'setErrors'
+        'serialHash' => 'setSerialHash',
+        'usn' => 'setUsn',
+        'obitDid' => 'setObitDid',
+        'usnBase58' => 'setUsnBase58'
     ];
 
     /**
@@ -128,9 +132,10 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'errors' => 'getErrors'
+        'serialHash' => 'getSerialHash',
+        'usn' => 'getUsn',
+        'obitDid' => 'getObitDid',
+        'usnBase58' => 'getUsnBase58'
     ];
 
     /**
@@ -190,9 +195,10 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = $data['code'] ?? 422;
-        $this->container['message'] = $data['message'] ?? 'The given data was invalid.';
-        $this->container['errors'] = $data['errors'] ?? null;
+        $this->container['serialHash'] = $data['serialHash'] ?? null;
+        $this->container['usn'] = $data['usn'] ?? null;
+        $this->container['obitDid'] = $data['obitDid'] ?? null;
+        $this->container['usnBase58'] = $data['usnBase58'] ?? null;
     }
 
     /**
@@ -220,73 +226,97 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets code
-     *
-     * @return int|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int|null $code code
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
+     * Gets serialHash
      *
      * @return string|null
      */
-    public function getMessage()
+    public function getSerialHash()
     {
-        return $this->container['message'];
+        return $this->container['serialHash'];
     }
 
     /**
-     * Sets message
+     * Sets serialHash
      *
-     * @param string|null $message message
+     * @param string|null $serialHash serialHash
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setSerialHash($serialHash)
     {
-        $this->container['message'] = $message;
+        $this->container['serialHash'] = $serialHash;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets usn
      *
-     * @return array<string,string[]>|null
+     * @return string|null
      */
-    public function getErrors()
+    public function getUsn()
     {
-        return $this->container['errors'];
+        return $this->container['usn'];
     }
 
     /**
-     * Sets errors
+     * Sets usn
      *
-     * @param array<string,string[]>|null $errors errors
+     * @param string|null $usn usn
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setUsn($usn)
     {
-        $this->container['errors'] = $errors;
+        $this->container['usn'] = $usn;
+
+        return $this;
+    }
+
+    /**
+     * Gets obitDid
+     *
+     * @return string|null
+     */
+    public function getObitDid()
+    {
+        return $this->container['obitDid'];
+    }
+
+    /**
+     * Sets obitDid
+     *
+     * @param string|null $obitDid obitDid
+     *
+     * @return self
+     */
+    public function setObitDid($obitDid)
+    {
+        $this->container['obitDid'] = $obitDid;
+
+        return $this;
+    }
+
+    /**
+     * Gets usnBase58
+     *
+     * @return string|null
+     */
+    public function getUsnBase58()
+    {
+        return $this->container['usnBase58'];
+    }
+
+    /**
+     * Sets usnBase58
+     *
+     * @param string|null $usnBase58 usnBase58
+     *
+     * @return self
+     */
+    public function setUsnBase58($usnBase58)
+    {
+        $this->container['usnBase58'] = $usnBase58;
 
         return $this;
     }
