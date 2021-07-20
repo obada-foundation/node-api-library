@@ -61,7 +61,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'status' => 'int',
-        'blockchainObit' => '\Obada\Entities\BlockChainObit'
+        'obit' => '\Obada\Entities\ClientObit'
     ];
 
     /**
@@ -73,7 +73,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'blockchainObit' => null
+        'obit' => null
     ];
 
     /**
@@ -104,7 +104,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'blockchainObit' => 'blockchain_obit'
+        'obit' => 'obit'
     ];
 
     /**
@@ -114,7 +114,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'blockchainObit' => 'setBlockchainObit'
+        'obit' => 'setObit'
     ];
 
     /**
@@ -124,7 +124,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'blockchainObit' => 'getBlockchainObit'
+        'obit' => 'getObit'
     ];
 
     /**
@@ -185,7 +185,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->container['status'] = $data['status'] ?? null;
-        $this->container['blockchainObit'] = $data['blockchainObit'] ?? null;
+        $this->container['obit'] = $data['obit'] ?? null;
     }
 
     /**
@@ -237,25 +237,25 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets blockchainObit
+     * Gets obit
      *
-     * @return \Obada\Entities\BlockChainObit|null
+     * @return \Obada\Entities\ClientObit|null
      */
-    public function getBlockchainObit()
+    public function getObit()
     {
-        return $this->container['blockchainObit'];
+        return $this->container['obit'];
     }
 
     /**
-     * Sets blockchainObit
+     * Sets obit
      *
-     * @param \Obada\Entities\BlockChainObit|null $blockchainObit blockchainObit
+     * @param \Obada\Entities\ClientObit|null $obit obit
      *
      * @return self
      */
-    public function setBlockchainObit($blockchainObit)
+    public function setObit($obit)
     {
-        $this->container['blockchainObit'] = $blockchainObit;
+        $this->container['obit'] = $obit;
 
         return $this;
     }

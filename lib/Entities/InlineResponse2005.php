@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * InlineResponse2005
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * InlineResponse2005 Class Doc Comment
  *
  * @category Class
  * @package  Obada
@@ -43,7 +43,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_3';
+    protected static $openAPIModelName = 'inline_response_200_5';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'int',
-        'obit' => '\Obada\Entities\ObitDefinition'
+        'data' => '\Obada\Entities\ObitHistory[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'obit' => null
+        'data' => null
     ];
 
     /**
@@ -103,8 +101,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'obit' => 'obit'
+        'data' => 'data'
     ];
 
     /**
@@ -113,8 +110,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'obit' => 'setObit'
+        'data' => 'setData'
     ];
 
     /**
@@ -123,8 +119,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'obit' => 'getObit'
+        'data' => 'getData'
     ];
 
     /**
@@ -184,8 +179,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['obit'] = $data['obit'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -213,49 +207,25 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets status
+     * Gets data
      *
-     * @return int|null
+     * @return \Obada\Entities\ObitHistory[]|null
      */
-    public function getStatus()
+    public function getData()
     {
-        return $this->container['status'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets status
+     * Sets data
      *
-     * @param int|null $status status
+     * @param \Obada\Entities\ObitHistory[]|null $data data
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setData($data)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets obit
-     *
-     * @return \Obada\Entities\ObitDefinition|null
-     */
-    public function getObit()
-    {
-        return $this->container['obit'];
-    }
-
-    /**
-     * Sets obit
-     *
-     * @param \Obada\Entities\ObitDefinition|null $obit obit
-     *
-     * @return self
-     */
-    public function setObit($obit)
-    {
-        $this->container['obit'] = $obit;
+        $this->container['data'] = $data;
 
         return $this;
     }

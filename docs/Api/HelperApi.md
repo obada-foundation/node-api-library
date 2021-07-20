@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `fetchObitFromChain()`
 
 ```php
-fetchObitFromChain($obitDid): \Obada\Entities\InlineResponse200
+fetchObitFromChain($obitDid): \Obada\Entities\InlineResponse2001
 ```
 
 Get Obit From Blockchain
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 ## `generateObitDef()`
 
 ```php
-generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\InlineResponse2002
+generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\InlineResponse2003
 ```
 
 Generate Obit Definition
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\Obada\Entities\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ No authorization required
 ## `generateRootHash()`
 
 ```php
-generateRootHash($localObit): \Obada\Entities\InlineResponse2001
+generateRootHash($localObit): \Obada\Entities\InlineResponse2002
 ```
 
 Generates The Root Hash using the data provided.
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Obada\Entities\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ No authorization required
 ## `getClientObit()`
 
 ```php
-getClientObit($obitDid): \Obada\Entities\ClientObitResponse
+getClientObit($obitDid): \Obada\Entities\InlineResponse200
 ```
 
 Get Client Obit
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\ClientObitResponse**](../Model/ClientObitResponse.md)
+[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
