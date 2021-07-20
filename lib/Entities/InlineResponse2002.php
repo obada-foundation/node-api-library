@@ -61,7 +61,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'status' => 'int',
-        'rootHash' => 'string'
+        'blockchainObit' => '\Obada\Entities\BlockChainObit'
     ];
 
     /**
@@ -73,7 +73,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'rootHash' => null
+        'blockchainObit' => null
     ];
 
     /**
@@ -104,7 +104,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'rootHash' => 'root_hash'
+        'blockchainObit' => 'blockchain_obit'
     ];
 
     /**
@@ -114,7 +114,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'rootHash' => 'setRootHash'
+        'blockchainObit' => 'setBlockchainObit'
     ];
 
     /**
@@ -124,7 +124,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'rootHash' => 'getRootHash'
+        'blockchainObit' => 'getBlockchainObit'
     ];
 
     /**
@@ -185,7 +185,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->container['status'] = $data['status'] ?? null;
-        $this->container['rootHash'] = $data['rootHash'] ?? null;
+        $this->container['blockchainObit'] = $data['blockchainObit'] ?? null;
     }
 
     /**
@@ -237,25 +237,25 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets rootHash
+     * Gets blockchainObit
      *
-     * @return string|null
+     * @return \Obada\Entities\BlockChainObit|null
      */
-    public function getRootHash()
+    public function getBlockchainObit()
     {
-        return $this->container['rootHash'];
+        return $this->container['blockchainObit'];
     }
 
     /**
-     * Sets rootHash
+     * Sets blockchainObit
      *
-     * @param string|null $rootHash rootHash
+     * @param \Obada\Entities\BlockChainObit|null $blockchainObit blockchainObit
      *
      * @return self
      */
-    public function setRootHash($rootHash)
+    public function setBlockchainObit($blockchainObit)
     {
-        $this->container['rootHash'] = $rootHash;
+        $this->container['blockchainObit'] = $blockchainObit;
 
         return $this;
     }

@@ -124,7 +124,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse2001
+     * @return \Obada\Entities\InlineResponse2002
      */
     public function fetchObitFromChain($obitDid)
     {
@@ -141,7 +141,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
     public function fetchObitFromChainWithHttpInfo($obitDid)
     {
@@ -177,20 +177,20 @@ class HelperApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse2001' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse2002' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2001', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2002', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse2001';
+            $returnType = '\Obada\Entities\InlineResponse2002';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -208,7 +208,7 @@ class HelperApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse2001',
+                        '\Obada\Entities\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -250,7 +250,7 @@ class HelperApi
      */
     public function fetchObitFromChainAsyncWithHttpInfo($obitDid)
     {
-        $returnType = '\Obada\Entities\InlineResponse2001';
+        $returnType = '\Obada\Entities\InlineResponse2002';
         $request = $this->fetchObitFromChainRequest($obitDid);
 
         return $this->client
@@ -390,7 +390,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse2003
+     * @return \Obada\Entities\InlineResponse2004
      */
     public function generateObitDef($manufacturer, $partNumber, $serialNumber)
     {
@@ -409,7 +409,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateObitDefWithHttpInfo($manufacturer, $partNumber, $serialNumber)
     {
@@ -445,20 +445,20 @@ class HelperApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse2003' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse2004' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse2003';
+            $returnType = '\Obada\Entities\InlineResponse2004';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -476,7 +476,7 @@ class HelperApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse2003',
+                        '\Obada\Entities\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -522,7 +522,7 @@ class HelperApi
      */
     public function generateObitDefAsyncWithHttpInfo($manufacturer, $partNumber, $serialNumber)
     {
-        $returnType = '\Obada\Entities\InlineResponse2003';
+        $returnType = '\Obada\Entities\InlineResponse2004';
         $request = $this->generateObitDefRequest($manufacturer, $partNumber, $serialNumber);
 
         return $this->client
@@ -699,7 +699,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse2002
+     * @return \Obada\Entities\InlineResponse2003
      */
     public function generateRootHash($localObit = null)
     {
@@ -716,7 +716,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateRootHashWithHttpInfo($localObit = null)
     {
@@ -752,20 +752,20 @@ class HelperApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse2002' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse2003' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2002', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2003', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse2002';
+            $returnType = '\Obada\Entities\InlineResponse2003';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -783,7 +783,7 @@ class HelperApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse2002',
+                        '\Obada\Entities\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -825,7 +825,7 @@ class HelperApi
      */
     public function generateRootHashAsyncWithHttpInfo($localObit = null)
     {
-        $returnType = '\Obada\Entities\InlineResponse2002';
+        $returnType = '\Obada\Entities\InlineResponse2003';
         $request = $this->generateRootHashRequest($localObit);
 
         return $this->client
@@ -955,7 +955,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse200
+     * @return \Obada\Entities\InlineResponse2001
      */
     public function getClientObit($obitDid)
     {
@@ -972,7 +972,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClientObitWithHttpInfo($obitDid)
     {
@@ -1008,20 +1008,20 @@ class HelperApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse200' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse200';
+            $returnType = '\Obada\Entities\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1039,7 +1039,7 @@ class HelperApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse200',
+                        '\Obada\Entities\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1081,7 +1081,7 @@ class HelperApi
      */
     public function getClientObitAsyncWithHttpInfo($obitDid)
     {
-        $returnType = '\Obada\Entities\InlineResponse200';
+        $returnType = '\Obada\Entities\InlineResponse2001';
         $request = $this->getClientObitRequest($obitDid);
 
         return $this->client
@@ -1211,36 +1211,34 @@ class HelperApi
     }
 
     /**
-     * Operation saveClientObit
+     * Operation getClientObits
      *
-     * Save Client Obit
+     * Returns a list of client obits
      *
-     * @param  \Obada\Entities\LocalObit $localObit localObit (optional)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Obada\Entities\InlineResponse200
      */
-    public function saveClientObit($localObit = null)
+    public function getClientObits()
     {
-        list($response) = $this->saveClientObitWithHttpInfo($localObit);
+        list($response) = $this->getClientObitsWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation saveClientObitWithHttpInfo
+     * Operation getClientObitsWithHttpInfo
      *
-     * Save Client Obit
+     * Returns a list of client obits
      *
-     * @param  \Obada\Entities\LocalObit $localObit (optional)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Obada\Entities\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saveClientObitWithHttpInfo($localObit = null)
+    public function getClientObitsWithHttpInfo()
     {
-        $request = $this->saveClientObitRequest($localObit);
+        $request = $this->getClientObitsRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -1314,6 +1312,253 @@ class HelperApi
     }
 
     /**
+     * Operation getClientObitsAsync
+     *
+     * Returns a list of client obits
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getClientObitsAsync()
+    {
+        return $this->getClientObitsAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getClientObitsAsyncWithHttpInfo
+     *
+     * Returns a list of client obits
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getClientObitsAsyncWithHttpInfo()
+    {
+        $returnType = '\Obada\Entities\InlineResponse200';
+        $request = $this->getClientObitsRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getClientObits'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getClientObitsRequest()
+    {
+
+        $resourcePath = '/api/client/obits';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation saveClientObit
+     *
+     * Save Client Obit
+     *
+     * @param  \Obada\Entities\LocalObit $localObit localObit (optional)
+     *
+     * @throws \Obada\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Obada\Entities\InlineResponse2001
+     */
+    public function saveClientObit($localObit = null)
+    {
+        list($response) = $this->saveClientObitWithHttpInfo($localObit);
+        return $response;
+    }
+
+    /**
+     * Operation saveClientObitWithHttpInfo
+     *
+     * Save Client Obit
+     *
+     * @param  \Obada\Entities\LocalObit $localObit (optional)
+     *
+     * @throws \Obada\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Obada\Entities\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function saveClientObitWithHttpInfo($localObit = null)
+    {
+        $request = $this->saveClientObitRequest($localObit);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Obada\Entities\InlineResponse2001' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2001', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Obada\Entities\InlineResponse2001';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Obada\Entities\InlineResponse2001',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
      * Operation saveClientObitAsync
      *
      * Save Client Obit
@@ -1345,7 +1590,7 @@ class HelperApi
      */
     public function saveClientObitAsyncWithHttpInfo($localObit = null)
     {
-        $returnType = '\Obada\Entities\InlineResponse200';
+        $returnType = '\Obada\Entities\InlineResponse2001';
         $request = $this->saveClientObitRequest($localObit);
 
         return $this->client

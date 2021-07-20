@@ -559,7 +559,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse2004
+     * @return \Obada\Entities\InlineResponse2005
      */
     public function searchObits($serialNumberHash = null, $obitStatus = null, $manufacturer = null, $partNumber = null, $usn = null, $ownerDid = null, $offset = 0, $limit = 0)
     {
@@ -581,7 +581,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchObitsWithHttpInfo($serialNumberHash = null, $obitStatus = null, $manufacturer = null, $partNumber = null, $usn = null, $ownerDid = null, $offset = 0, $limit = 0)
     {
@@ -617,20 +617,20 @@ class ObitApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse2004' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse2005' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2004', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2005', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse2004';
+            $returnType = '\Obada\Entities\InlineResponse2005';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -648,7 +648,7 @@ class ObitApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse2004',
+                        '\Obada\Entities\InlineResponse2005',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -700,7 +700,7 @@ class ObitApi
      */
     public function searchObitsAsyncWithHttpInfo($serialNumberHash = null, $obitStatus = null, $manufacturer = null, $partNumber = null, $usn = null, $ownerDid = null, $offset = 0, $limit = 0)
     {
-        $returnType = '\Obada\Entities\InlineResponse2004';
+        $returnType = '\Obada\Entities\InlineResponse2005';
         $request = $this->searchObitsRequest($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit);
 
         return $this->client
@@ -1204,7 +1204,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\InlineResponse2005|\Obada\Entities\NotFound
+     * @return \Obada\Entities\InlineResponse2006|\Obada\Entities\NotFound
      */
     public function showObitHistory($obitDid)
     {
@@ -1219,7 +1219,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\InlineResponse2005|\Obada\Entities\NotFound, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse2006|\Obada\Entities\NotFound, HTTP status code, HTTP response headers (array of strings)
      */
     public function showObitHistoryWithHttpInfo($obitDid)
     {
@@ -1255,14 +1255,14 @@ class ObitApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\InlineResponse2005' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse2006' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2005', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1280,7 +1280,7 @@ class ObitApi
                     ];
             }
 
-            $returnType = '\Obada\Entities\InlineResponse2005';
+            $returnType = '\Obada\Entities\InlineResponse2006';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1298,7 +1298,7 @@ class ObitApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\InlineResponse2005',
+                        '\Obada\Entities\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1344,7 +1344,7 @@ class ObitApi
      */
     public function showObitHistoryAsyncWithHttpInfo($obitDid)
     {
-        $returnType = '\Obada\Entities\InlineResponse2005';
+        $returnType = '\Obada\Entities\InlineResponse2006';
         $request = $this->showObitHistoryRequest($obitDid);
 
         return $this->client

@@ -8,13 +8,14 @@ Method | HTTP request | Description
 [**generateObitDef()**](HelperApi.md#generateObitDef) | **GET** /api/obit/definition | Generate Obit Definition
 [**generateRootHash()**](HelperApi.md#generateRootHash) | **POST** /api/obit/hash | Generates The Root Hash using the data provided.
 [**getClientObit()**](HelperApi.md#getClientObit) | **GET** /api/client/obit/{obit_did} | Get Client Obit
+[**getClientObits()**](HelperApi.md#getClientObits) | **GET** /api/client/obits | Returns a list of client obits
 [**saveClientObit()**](HelperApi.md#saveClientObit) | **POST** /api/client/obit | Save Client Obit
 
 
 ## `fetchObitFromChain()`
 
 ```php
-fetchObitFromChain($obitDid): \Obada\Entities\InlineResponse2001
+fetchObitFromChain($obitDid): \Obada\Entities\InlineResponse2002
 ```
 
 Get Obit From Blockchain
@@ -52,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Obada\Entities\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -70,7 +71,7 @@ No authorization required
 ## `generateObitDef()`
 
 ```php
-generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\InlineResponse2003
+generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\InlineResponse2004
 ```
 
 Generate Obit Definition
@@ -112,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\Obada\Entities\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -130,7 +131,7 @@ No authorization required
 ## `generateRootHash()`
 
 ```php
-generateRootHash($localObit): \Obada\Entities\InlineResponse2002
+generateRootHash($localObit): \Obada\Entities\InlineResponse2003
 ```
 
 Generates The Root Hash using the data provided.
@@ -166,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\Obada\Entities\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -184,7 +185,7 @@ No authorization required
 ## `getClientObit()`
 
 ```php
-getClientObit($obitDid): \Obada\Entities\InlineResponse200
+getClientObit($obitDid): \Obada\Entities\InlineResponse2001
 ```
 
 Get Client Obit
@@ -220,6 +221,57 @@ Name | Type | Description  | Notes
 
 ### Return type
 
+[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getClientObits()`
+
+```php
+getClientObits(): \Obada\Entities\InlineResponse200
+```
+
+Returns a list of client obits
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Obada\Api\HelperApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getClientObits();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling HelperApi->getClientObits: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
 [**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
@@ -238,7 +290,7 @@ No authorization required
 ## `saveClientObit()`
 
 ```php
-saveClientObit($localObit): \Obada\Entities\InlineResponse200
+saveClientObit($localObit): \Obada\Entities\InlineResponse2001
 ```
 
 Save Client Obit
@@ -274,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
