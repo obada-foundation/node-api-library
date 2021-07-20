@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 *HelperApi* | [**generateObitDef**](docs/Api/HelperApi.md#generateobitdef) | **GET** /api/obit/definition | Generate Obit Definition
 *HelperApi* | [**generateRootHash**](docs/Api/HelperApi.md#generateroothash) | **POST** /api/obit/hash | Generates The Root Hash using the data provided.
 *ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
+*ObitApi* | [**fetchObitFromChain**](docs/Api/ObitApi.md#fetchobitfromchain) | **GET** /api/server/obit/{obit_did} | Get Obit From Blockchain
 *ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
 *ObitApi* | [**searchObits**](docs/Api/ObitApi.md#searchobits) | **GET** /obits | 
 *ObitApi* | [**showObit**](docs/Api/ObitApi.md#showobit) | **GET** /obits/{obit_did} | 
@@ -90,6 +91,7 @@ Class | Method | HTTP request | Description
 - [InlineResponse2001](docs/Model/InlineResponse2001.md)
 - [InlineResponse2002](docs/Model/InlineResponse2002.md)
 - [InlineResponse2003](docs/Model/InlineResponse2003.md)
+- [InlineResponse2004](docs/Model/InlineResponse2004.md)
 - [LocalObit](docs/Model/LocalObit.md)
 - [LocalObitDocuments](docs/Model/LocalObitDocuments.md)
 - [LocalObitMetadata](docs/Model/LocalObitMetadata.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * ObitDefinition
+ * InlineResponse2004
  *
  * PHP version 7.2
  *
@@ -33,10 +33,9 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * ObitDefinition Class Doc Comment
+ * InlineResponse2004 Class Doc Comment
  *
  * @category Class
- * @description New Obit def
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +43,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse2004 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +52,7 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ObitDefinition';
+    protected static $openAPIModelName = 'inline_response_200_4';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,10 +60,7 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'serialHash' => 'string',
-        'usn' => 'string',
-        'obitDid' => 'string',
-        'usnBase58' => 'string'
+        'data' => '\Obada\Entities\ObitHistory[]'
     ];
 
     /**
@@ -75,10 +71,7 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'serialHash' => null,
-        'usn' => null,
-        'obitDid' => null,
-        'usnBase58' => null
+        'data' => null
     ];
 
     /**
@@ -108,10 +101,7 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'serialHash' => 'serial_hash',
-        'usn' => 'usn',
-        'obitDid' => 'obit_did',
-        'usnBase58' => 'usn_base58'
+        'data' => 'data'
     ];
 
     /**
@@ -120,10 +110,7 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'serialHash' => 'setSerialHash',
-        'usn' => 'setUsn',
-        'obitDid' => 'setObitDid',
-        'usnBase58' => 'setUsnBase58'
+        'data' => 'setData'
     ];
 
     /**
@@ -132,10 +119,7 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'serialHash' => 'getSerialHash',
-        'usn' => 'getUsn',
-        'obitDid' => 'getObitDid',
-        'usnBase58' => 'getUsnBase58'
+        'data' => 'getData'
     ];
 
     /**
@@ -195,10 +179,7 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['serialHash'] = $data['serialHash'] ?? null;
-        $this->container['usn'] = $data['usn'] ?? null;
-        $this->container['obitDid'] = $data['obitDid'] ?? null;
-        $this->container['usnBase58'] = $data['usnBase58'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -226,97 +207,25 @@ class ObitDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets serialHash
+     * Gets data
      *
-     * @return string|null
+     * @return \Obada\Entities\ObitHistory[]|null
      */
-    public function getSerialHash()
+    public function getData()
     {
-        return $this->container['serialHash'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets serialHash
+     * Sets data
      *
-     * @param string|null $serialHash serialHash
+     * @param \Obada\Entities\ObitHistory[]|null $data data
      *
      * @return self
      */
-    public function setSerialHash($serialHash)
+    public function setData($data)
     {
-        $this->container['serialHash'] = $serialHash;
-
-        return $this;
-    }
-
-    /**
-     * Gets usn
-     *
-     * @return string|null
-     */
-    public function getUsn()
-    {
-        return $this->container['usn'];
-    }
-
-    /**
-     * Sets usn
-     *
-     * @param string|null $usn usn
-     *
-     * @return self
-     */
-    public function setUsn($usn)
-    {
-        $this->container['usn'] = $usn;
-
-        return $this;
-    }
-
-    /**
-     * Gets obitDid
-     *
-     * @return string|null
-     */
-    public function getObitDid()
-    {
-        return $this->container['obitDid'];
-    }
-
-    /**
-     * Sets obitDid
-     *
-     * @param string|null $obitDid obitDid
-     *
-     * @return self
-     */
-    public function setObitDid($obitDid)
-    {
-        $this->container['obitDid'] = $obitDid;
-
-        return $this;
-    }
-
-    /**
-     * Gets usnBase58
-     *
-     * @return string|null
-     */
-    public function getUsnBase58()
-    {
-        return $this->container['usnBase58'];
-    }
-
-    /**
-     * Sets usnBase58
-     *
-     * @param string|null $usnBase58 usnBase58
-     *
-     * @return self
-     */
-    public function setUsnBase58($usnBase58)
-    {
-        $this->container['usnBase58'] = $usnBase58;
+        $this->container['data'] = $data;
 
         return $this;
     }

@@ -10,6 +10,7 @@ docs/Model/InlineResponse200.md
 docs/Model/InlineResponse2001.md
 docs/Model/InlineResponse2002.md
 docs/Model/InlineResponse2003.md
+docs/Model/InlineResponse2004.md
 docs/Model/LocalObit.md
 docs/Model/LocalObitDocuments.md
 docs/Model/LocalObitMetadata.md
@@ -31,6 +32,7 @@ lib/Entities/InlineResponse200.php
 lib/Entities/InlineResponse2001.php
 lib/Entities/InlineResponse2002.php
 lib/Entities/InlineResponse2003.php
+lib/Entities/InlineResponse2004.php
 lib/Entities/LocalObit.php
 lib/Entities/LocalObitDocuments.php
 lib/Entities/LocalObitMetadata.php
@@ -46,4 +48,4 @@ lib/Entities/UnprocessableEntity.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/InlineResponse2003Test.php
+test/Model/InlineResponse2004Test.php

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `generateObitDef()`
 
 ```php
-generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\InlineResponse2001
+generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\InlineResponse2002
 ```
 
 Generate Obit Definition
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Obada\Entities\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 ## `generateRootHash()`
 
 ```php
-generateRootHash($localObit): \Obada\Entities\InlineResponse200
+generateRootHash($localObit): \Obada\Entities\InlineResponse2001
 ```
 
 Generates The Root Hash using the data provided.
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
