@@ -238,7 +238,7 @@ No authorization required
 ## `saveClientObit()`
 
 ```php
-saveClientObit($localObit): \Obada\Entities\ClientObitResponse
+saveClientObit($localObit): \Obada\Entities\InlineResponse200
 ```
 
 Save Client Obit
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\ClientObitResponse**](../Model/ClientObitResponse.md)
+[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 

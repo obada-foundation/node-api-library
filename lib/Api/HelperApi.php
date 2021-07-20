@@ -1219,7 +1219,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\ClientObitResponse
+     * @return \Obada\Entities\InlineResponse200
      */
     public function saveClientObit($localObit = null)
     {
@@ -1236,7 +1236,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\ClientObitResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function saveClientObitWithHttpInfo($localObit = null)
     {
@@ -1272,20 +1272,20 @@ class HelperApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\ClientObitResponse' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse200' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\ClientObitResponse', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse200', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\ClientObitResponse';
+            $returnType = '\Obada\Entities\InlineResponse200';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1303,7 +1303,7 @@ class HelperApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\ClientObitResponse',
+                        '\Obada\Entities\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1345,7 +1345,7 @@ class HelperApi
      */
     public function saveClientObitAsyncWithHttpInfo($localObit = null)
     {
-        $returnType = '\Obada\Entities\ClientObitResponse';
+        $returnType = '\Obada\Entities\InlineResponse200';
         $request = $this->saveClientObitRequest($localObit);
 
         return $this->client
