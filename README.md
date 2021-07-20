@@ -76,6 +76,7 @@ Class | Method | HTTP request | Description
 *HelperApi* | [**generateObitDef**](docs/Api/HelperApi.md#generateobitdef) | **GET** /api/obit/definition | Generate Obit Definition
 *HelperApi* | [**generateRootHash**](docs/Api/HelperApi.md#generateroothash) | **POST** /api/obit/hash | Generates The Root Hash using the data provided.
 *HelperApi* | [**getClientObit**](docs/Api/HelperApi.md#getclientobit) | **GET** /api/client/obit/{obit_did} | Get Client Obit
+*HelperApi* | [**saveClientObit**](docs/Api/HelperApi.md#saveclientobit) | **POST** /api/client/obit | Save Client Obit
 *ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
 *ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
 *ObitApi* | [**searchObits**](docs/Api/ObitApi.md#searchobits) | **GET** /obits | 
