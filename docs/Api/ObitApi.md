@@ -5,7 +5,6 @@ All URIs are relative to https://dev.api.obada.io.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createObit()**](ObitApi.md#createObit) | **POST** /obits | 
-[**fetchObitFromChain()**](ObitApi.md#fetchObitFromChain) | **GET** /api/server/obit/{obit_did} | Get Obit From Blockchain
 [**removeObit()**](ObitApi.md#removeObit) | **DELETE** /obits/{obit_did} | 
 [**searchObits()**](ObitApi.md#searchObits) | **GET** /obits | 
 [**showObit()**](ObitApi.md#showObit) | **GET** /obits/{obit_did} | 
@@ -62,62 +61,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `fetchObitFromChain()`
-
-```php
-fetchObitFromChain($obitDid): \Obada\Entities\InlineResponse200
-```
-
-Get Obit From Blockchain
-
-Retrieves Obit information from blockchain but does not download it.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Obada\Api\ObitApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$obitDid = did:obada:81413bc1ad2074a6ae35d1f65f64f1bca2e8a20959f37ef0349a729ddc567d9b; // string | Required.
-
-try {
-    $result = $apiInstance->fetchObitFromChain($obitDid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ObitApi->fetchObitFromChain: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **obitDid** | **string**| Required. |
-
-### Return type
-
-[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

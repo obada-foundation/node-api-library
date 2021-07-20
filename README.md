@@ -55,15 +55,13 @@ $apiInstance = new Obada\Api\HelperApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$manufacturer = Apple; // string | Device Id (Required)
-$partNumber = 123456789; // string | Part Number (Required)
-$serialNumber = 123456789; // string | Serial Number (Required)
+$obitDid = did:obada:81413bc1ad2074a6ae35d1f65f64f1bca2e8a20959f37ef0349a729ddc567d9b; // string | Required.
 
 try {
-    $result = $apiInstance->generateObitDef($manufacturer, $partNumber, $serialNumber);
+    $result = $apiInstance->fetchObitFromChain($obitDid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HelperApi->generateObitDef: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HelperApi->fetchObitFromChain: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -74,10 +72,10 @@ All URIs are relative to *https://dev.api.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*HelperApi* | [**fetchObitFromChain**](docs/Api/HelperApi.md#fetchobitfromchain) | **GET** /api/server/obit/{obit_did} | Get Obit From Blockchain
 *HelperApi* | [**generateObitDef**](docs/Api/HelperApi.md#generateobitdef) | **GET** /api/obit/definition | Generate Obit Definition
 *HelperApi* | [**generateRootHash**](docs/Api/HelperApi.md#generateroothash) | **POST** /api/obit/hash | Generates The Root Hash using the data provided.
 *ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
-*ObitApi* | [**fetchObitFromChain**](docs/Api/ObitApi.md#fetchobitfromchain) | **GET** /api/server/obit/{obit_did} | Get Obit From Blockchain
 *ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
 *ObitApi* | [**searchObits**](docs/Api/ObitApi.md#searchobits) | **GET** /obits | 
 *ObitApi* | [**showObit**](docs/Api/ObitApi.md#showobit) | **GET** /obits/{obit_did} | 

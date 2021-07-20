@@ -48,4 +48,3 @@ lib/Entities/UnprocessableEntity.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/InlineResponse2004Test.php
