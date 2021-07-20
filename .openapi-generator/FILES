@@ -9,6 +9,11 @@ docs/Model/DocumentLink.md
 docs/Model/InlineResponse200.md
 docs/Model/InlineResponse2001.md
 docs/Model/InlineResponse2002.md
+docs/Model/InlineResponse2003.md
+docs/Model/LocalObit.md
+docs/Model/LocalObitDocuments.md
+docs/Model/LocalObitMetadata.md
+docs/Model/LocalObitStructuredData.md
 docs/Model/MetaDataRecord.md
 docs/Model/NotFound.md
 docs/Model/Obit.md
@@ -25,6 +30,11 @@ lib/Entities/DocumentLink.php
 lib/Entities/InlineResponse200.php
 lib/Entities/InlineResponse2001.php
 lib/Entities/InlineResponse2002.php
+lib/Entities/InlineResponse2003.php
+lib/Entities/LocalObit.php
+lib/Entities/LocalObitDocuments.php
+lib/Entities/LocalObitMetadata.php
+lib/Entities/LocalObitStructuredData.php
 lib/Entities/MetaDataRecord.php
 lib/Entities/ModelInterface.php
 lib/Entities/NotFound.php
@@ -36,3 +46,4 @@ lib/Entities/UnprocessableEntity.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/InlineResponse2003Test.php

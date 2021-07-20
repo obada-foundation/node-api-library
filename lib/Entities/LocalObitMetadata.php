@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * LocalObitMetadata
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * LocalObitMetadata Class Doc Comment
  *
  * @category Class
+ * @description A record that represent key/value metadata record
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class LocalObitMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'LocalObit_metadata';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +61,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'int',
-        'rootHash' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -72,8 +73,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'rootHash' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -103,8 +104,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'rootHash' => 'root_hash'
+        'key' => 'key',
+        'value' => 'value'
     ];
 
     /**
@@ -113,8 +114,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'rootHash' => 'setRootHash'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -123,8 +124,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'rootHash' => 'getRootHash'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -184,8 +185,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['rootHash'] = $data['rootHash'] ?? null;
+        $this->container['key'] = $data['key'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -197,6 +198,12 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -213,49 +220,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets status
+     * Gets key
      *
-     * @return int|null
+     * @return string
      */
-    public function getStatus()
+    public function getKey()
     {
-        return $this->container['status'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets status
+     * Sets key
      *
-     * @param int|null $status status
+     * @param string $key Metadata key
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setKey($key)
     {
-        $this->container['status'] = $status;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets rootHash
+     * Gets value
      *
-     * @return string|null
+     * @return string
      */
-    public function getRootHash()
+    public function getValue()
     {
-        return $this->container['rootHash'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets rootHash
+     * Sets value
      *
-     * @param string|null $rootHash rootHash
+     * @param string $value Matadata value
      *
      * @return self
      */
-    public function setRootHash($rootHash)
+    public function setValue($value)
     {
-        $this->container['rootHash'] = $rootHash;
+        $this->container['value'] = $value;
 
         return $this;
     }

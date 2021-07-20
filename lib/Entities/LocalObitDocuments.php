@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * LocalObitDocuments
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * LocalObitDocuments Class Doc Comment
  *
  * @category Class
+ * @description Document hashlink
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class LocalObitDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'LocalObit_documents';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +61,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'int',
-        'rootHash' => 'string'
+        'name' => 'string',
+        'hashlink' => 'string'
     ];
 
     /**
@@ -72,8 +73,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'rootHash' => null
+        'name' => null,
+        'hashlink' => null
     ];
 
     /**
@@ -103,8 +104,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'rootHash' => 'root_hash'
+        'name' => 'name',
+        'hashlink' => 'hashlink'
     ];
 
     /**
@@ -113,8 +114,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'rootHash' => 'setRootHash'
+        'name' => 'setName',
+        'hashlink' => 'setHashlink'
     ];
 
     /**
@@ -123,8 +124,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'rootHash' => 'getRootHash'
+        'name' => 'getName',
+        'hashlink' => 'getHashlink'
     ];
 
     /**
@@ -184,8 +185,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['rootHash'] = $data['rootHash'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['hashlink'] = $data['hashlink'] ?? null;
     }
 
     /**
@@ -197,6 +198,12 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['hashlink'] === null) {
+            $invalidProperties[] = "'hashlink' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -213,49 +220,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets status
+     * Gets name
      *
-     * @return int|null
+     * @return string
      */
-    public function getStatus()
+    public function getName()
     {
-        return $this->container['status'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets status
+     * Sets name
      *
-     * @param int|null $status status
+     * @param string $name Associative name of hashlink
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setName($name)
     {
-        $this->container['status'] = $status;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets rootHash
+     * Gets hashlink
      *
-     * @return string|null
+     * @return string
      */
-    public function getRootHash()
+    public function getHashlink()
     {
-        return $this->container['rootHash'];
+        return $this->container['hashlink'];
     }
 
     /**
-     * Sets rootHash
+     * Sets hashlink
      *
-     * @param string|null $rootHash rootHash
+     * @param string $hashlink Hashlink
      *
      * @return self
      */
-    public function setRootHash($rootHash)
+    public function setHashlink($hashlink)
     {
-        $this->container['rootHash'] = $rootHash;
+        $this->container['hashlink'] = $hashlink;
 
         return $this;
     }
