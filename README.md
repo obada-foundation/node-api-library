@@ -75,6 +75,7 @@ Class | Method | HTTP request | Description
 *HelperApi* | [**fetchObitFromChain**](docs/Api/HelperApi.md#fetchobitfromchain) | **GET** /api/server/obit/{obit_did} | Get Obit From Blockchain
 *HelperApi* | [**generateObitDef**](docs/Api/HelperApi.md#generateobitdef) | **GET** /api/obit/definition | Generate Obit Definition
 *HelperApi* | [**generateRootHash**](docs/Api/HelperApi.md#generateroothash) | **POST** /api/obit/hash | Generates The Root Hash using the data provided.
+*HelperApi* | [**getClientObit**](docs/Api/HelperApi.md#getclientobit) | **GET** /api/client/obit/{obit_did} | Get Client Obit
 *ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
 *ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
 *ObitApi* | [**searchObits**](docs/Api/ObitApi.md#searchobits) | **GET** /obits | 
@@ -84,6 +85,8 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [BlockChainObit](docs/Model/BlockChainObit.md)
+- [ClientObit](docs/Model/ClientObit.md)
 - [DocumentLink](docs/Model/DocumentLink.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
 - [InlineResponse2001](docs/Model/InlineResponse2001.md)

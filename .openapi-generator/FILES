@@ -5,6 +5,8 @@ README.md
 composer.json
 docs/Api/HelperApi.md
 docs/Api/ObitApi.md
+docs/Model/BlockChainObit.md
+docs/Model/ClientObit.md
 docs/Model/DocumentLink.md
 docs/Model/InlineResponse200.md
 docs/Model/InlineResponse2001.md
@@ -27,6 +29,8 @@ lib/Api/HelperApi.php
 lib/Api/ObitApi.php
 lib/ApiException.php
 lib/Configuration.php
+lib/Entities/BlockChainObit.php
+lib/Entities/ClientObit.php
 lib/Entities/DocumentLink.php
 lib/Entities/InlineResponse200.php
 lib/Entities/InlineResponse2001.php
@@ -48,3 +52,5 @@ lib/Entities/UnprocessableEntity.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/BlockChainObitTest.php
+test/Model/ClientObitTest.php
