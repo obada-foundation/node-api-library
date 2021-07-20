@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 - [DocumentLink](docs/Model/DocumentLink.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
 - [InlineResponse2001](docs/Model/InlineResponse2001.md)
+- [InlineResponse2002](docs/Model/InlineResponse2002.md)
 - [MetaDataRecord](docs/Model/MetaDataRecord.md)
 - [NotFound](docs/Model/NotFound.md)
 - [Obit](docs/Model/Obit.md)

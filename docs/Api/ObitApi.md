@@ -125,7 +125,7 @@ No authorization required
 ## `searchObits()`
 
 ```php
-searchObits($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit): \Obada\Entities\InlineResponse200
+searchObits($serialNumberHash, $obitStatus, $manufacturer, $partNumber, $usn, $ownerDid, $offset, $limit): \Obada\Entities\InlineResponse2001
 ```
 
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ No authorization required
 ## `showObitHistory()`
 
 ```php
-showObitHistory($obitDid): \Obada\Entities\InlineResponse2001
+showObitHistory($obitDid): \Obada\Entities\InlineResponse2002
 ```
 
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Obada\Entities\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 

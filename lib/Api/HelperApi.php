@@ -126,7 +126,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\ObitDefinitionResponse
+     * @return \Obada\Entities\InlineResponse200
      */
     public function generateObitDef($manufacturer, $partNumber, $serialNumber)
     {
@@ -145,7 +145,7 @@ class HelperApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\ObitDefinitionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateObitDefWithHttpInfo($manufacturer, $partNumber, $serialNumber)
     {
@@ -181,20 +181,20 @@ class HelperApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Obada\Entities\ObitDefinitionResponse' === '\SplFileObject') {
+                    if ('\Obada\Entities\InlineResponse200' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Obada\Entities\ObitDefinitionResponse', []),
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse200', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Obada\Entities\ObitDefinitionResponse';
+            $returnType = '\Obada\Entities\InlineResponse200';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -212,7 +212,7 @@ class HelperApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Obada\Entities\ObitDefinitionResponse',
+                        '\Obada\Entities\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -258,7 +258,7 @@ class HelperApi
      */
     public function generateObitDefAsyncWithHttpInfo($manufacturer, $partNumber, $serialNumber)
     {
-        $returnType = '\Obada\Entities\ObitDefinitionResponse';
+        $returnType = '\Obada\Entities\InlineResponse200';
         $request = $this->generateObitDefRequest($manufacturer, $partNumber, $serialNumber);
 
         return $this->client

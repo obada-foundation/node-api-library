@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `generateObitDef()`
 
 ```php
-generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\ObitDefinitionResponse
+generateObitDef($manufacturer, $partNumber, $serialNumber): \Obada\Entities\InlineResponse200
 ```
 
 Generate Obit Definition
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Obada\Entities\ObitDefinitionResponse**](../Model/ObitDefinitionResponse.md)
+[**\Obada\Entities\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 

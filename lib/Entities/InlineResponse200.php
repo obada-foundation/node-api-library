@@ -60,7 +60,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\Obit[]'
+        'status' => 'int',
+        'obit' => '\Obada\Entities\ObitDefinition'
     ];
 
     /**
@@ -71,7 +72,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'status' => null,
+        'obit' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'status' => 'status',
+        'obit' => 'obit'
     ];
 
     /**
@@ -110,7 +113,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'status' => 'setStatus',
+        'obit' => 'setObit'
     ];
 
     /**
@@ -119,7 +123,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'status' => 'getStatus',
+        'obit' => 'getObit'
     ];
 
     /**
@@ -179,7 +184,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['obit'] = $data['obit'] ?? null;
     }
 
     /**
@@ -207,25 +213,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets status
      *
-     * @return \Obada\Entities\Obit[]|null
+     * @return int|null
      */
-    public function getData()
+    public function getStatus()
     {
-        return $this->container['data'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets data
+     * Sets status
      *
-     * @param \Obada\Entities\Obit[]|null $data data
+     * @param int|null $status status
      *
      * @return self
      */
-    public function setData($data)
+    public function setStatus($status)
     {
-        $this->container['data'] = $data;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets obit
+     *
+     * @return \Obada\Entities\ObitDefinition|null
+     */
+    public function getObit()
+    {
+        return $this->container['obit'];
+    }
+
+    /**
+     * Sets obit
+     *
+     * @param \Obada\Entities\ObitDefinition|null $obit obit
+     *
+     * @return self
+     */
+    public function setObit($obit)
+    {
+        $this->container['obit'] = $obit;
 
         return $this;
     }

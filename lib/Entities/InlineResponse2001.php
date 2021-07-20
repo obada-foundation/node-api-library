@@ -60,7 +60,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'data' => '\Obada\Entities\Obit[]'
     ];
 
     /**
@@ -209,7 +209,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return \Obada\Entities\Obit[]|null
      */
     public function getData()
     {
@@ -219,7 +219,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param \Obada\Entities\Obit[]|null $data data
      *
      * @return self
      */
