@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 - [InlineResponse2004](docs/Model/InlineResponse2004.md)
 - [InlineResponse2005](docs/Model/InlineResponse2005.md)
 - [InlineResponse2006](docs/Model/InlineResponse2006.md)
+- [InlineResponse201](docs/Model/InlineResponse201.md)
 - [LocalObit](docs/Model/LocalObit.md)
 - [LocalObitDocuments](docs/Model/LocalObitDocuments.md)
 - [LocalObitMetadata](docs/Model/LocalObitMetadata.md)

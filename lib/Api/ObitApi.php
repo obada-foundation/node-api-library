@@ -122,11 +122,12 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Obada\Entities\InlineResponse201|\Obada\Entities\UnprocessableEntity
      */
     public function createObit($obit = null)
     {
-        $this->createObitWithHttpInfo($obit);
+        list($response) = $this->createObitWithHttpInfo($obit);
+        return $response;
     }
 
     /**
@@ -136,7 +137,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\InlineResponse201|\Obada\Entities\UnprocessableEntity, HTTP status code, HTTP response headers (array of strings)
      */
     public function createObitWithHttpInfo($obit = null)
     {
@@ -170,10 +171,56 @@ class ObitApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 201:
+                    if ('\Obada\Entities\InlineResponse201' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\InlineResponse201', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Obada\Entities\UnprocessableEntity' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\UnprocessableEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Obada\Entities\InlineResponse201';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Obada\Entities\InlineResponse201',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -215,14 +262,24 @@ class ObitApi
      */
     public function createObitAsyncWithHttpInfo($obit = null)
     {
-        $returnType = '';
+        $returnType = '\Obada\Entities\InlineResponse201';
         $request = $this->createObitRequest($obit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();

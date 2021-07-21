@@ -15,7 +15,7 @@ Method | HTTP request | Description
 ## `createObit()`
 
 ```php
-createObit($obit)
+createObit($obit): \Obada\Entities\InlineResponse201
 ```
 
 
@@ -38,7 +38,8 @@ $apiInstance = new Obada\Api\ObitApi(
 $obit = new \Obada\Entities\Obit(); // \Obada\Entities\Obit
 
 try {
-    $apiInstance->createObit($obit);
+    $result = $apiInstance->createObit($obit);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->createObit: ', $e->getMessage(), PHP_EOL;
 }
@@ -52,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Obada\Entities\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
