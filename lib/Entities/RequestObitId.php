@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * RequestObitId
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * RequestObitId Class Doc Comment
  *
  * @category Class
+ * @description Request Obit Id payload
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class RequestObitId implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'RequestObitId';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +61,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'manufacturer' => 'string',
+        'partNumber' => 'string',
+        'serialNumber' => 'string'
     ];
 
     /**
@@ -71,7 +74,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'manufacturer' => null,
+        'partNumber' => null,
+        'serialNumber' => null
     ];
 
     /**
@@ -101,7 +106,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'manufacturer' => 'manufacturer',
+        'partNumber' => 'part_number',
+        'serialNumber' => 'serial_number'
     ];
 
     /**
@@ -110,7 +117,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'manufacturer' => 'setManufacturer',
+        'partNumber' => 'setPartNumber',
+        'serialNumber' => 'setSerialNumber'
     ];
 
     /**
@@ -119,7 +128,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'manufacturer' => 'getManufacturer',
+        'partNumber' => 'getPartNumber',
+        'serialNumber' => 'getSerialNumber'
     ];
 
     /**
@@ -179,7 +190,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['manufacturer'] = $data['manufacturer'] ?? null;
+        $this->container['partNumber'] = $data['partNumber'] ?? null;
+        $this->container['serialNumber'] = $data['serialNumber'] ?? null;
     }
 
     /**
@@ -191,6 +204,15 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['manufacturer'] === null) {
+            $invalidProperties[] = "'manufacturer' can't be null";
+        }
+        if ($this->container['partNumber'] === null) {
+            $invalidProperties[] = "'partNumber' can't be null";
+        }
+        if ($this->container['serialNumber'] === null) {
+            $invalidProperties[] = "'serialNumber' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -207,25 +229,73 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets manufacturer
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string
      */
-    public function getData()
+    public function getManufacturer()
     {
-        return $this->container['data'];
+        return $this->container['manufacturer'];
     }
 
     /**
-     * Sets data
+     * Sets manufacturer
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string $manufacturer Manufacturer (Required)
      *
      * @return self
      */
-    public function setData($data)
+    public function setManufacturer($manufacturer)
     {
-        $this->container['data'] = $data;
+        $this->container['manufacturer'] = $manufacturer;
+
+        return $this;
+    }
+
+    /**
+     * Gets partNumber
+     *
+     * @return string
+     */
+    public function getPartNumber()
+    {
+        return $this->container['partNumber'];
+    }
+
+    /**
+     * Sets partNumber
+     *
+     * @param string $partNumber Part Number (Required)
+     *
+     * @return self
+     */
+    public function setPartNumber($partNumber)
+    {
+        $this->container['partNumber'] = $partNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets serialNumber
+     *
+     * @return string
+     */
+    public function getSerialNumber()
+    {
+        return $this->container['serialNumber'];
+    }
+
+    /**
+     * Sets serialNumber
+     *
+     * @param string $serialNumber Serial Number (Required)
+     *
+     * @return self
+     */
+    public function setSerialNumber($serialNumber)
+    {
+        $this->container['serialNumber'] = $serialNumber;
 
         return $this;
     }

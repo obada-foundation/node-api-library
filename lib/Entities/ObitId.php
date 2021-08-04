@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * ObitId
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * ObitId Class Doc Comment
  *
  * @category Class
+ * @description New Obit Id
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class ObitId implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'ObitId';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +61,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'id' => 'string',
+        'did' => 'string'
     ];
 
     /**
@@ -71,7 +73,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'id' => null,
+        'did' => null
     ];
 
     /**
@@ -101,7 +104,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'id' => 'id',
+        'did' => 'did'
     ];
 
     /**
@@ -110,7 +114,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'id' => 'setId',
+        'did' => 'setDid'
     ];
 
     /**
@@ -119,7 +124,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'id' => 'getId',
+        'did' => 'getDid'
     ];
 
     /**
@@ -179,7 +185,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['did'] = $data['did'] ?? null;
     }
 
     /**
@@ -207,25 +214,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets id
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getId()
     {
-        return $this->container['data'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets data
+     * Sets id
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string|null $id id
      *
      * @return self
      */
-    public function setData($data)
+    public function setId($id)
     {
-        $this->container['data'] = $data;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets did
+     *
+     * @return string|null
+     */
+    public function getDid()
+    {
+        return $this->container['did'];
+    }
+
+    /**
+     * Sets did
+     *
+     * @param string|null $did did
+     *
+     * @return self
+     */
+    public function setDid($did)
+    {
+        $this->container['did'] = $did;
 
         return $this;
     }

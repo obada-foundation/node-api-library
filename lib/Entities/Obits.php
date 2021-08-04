@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * Obits
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * Obits Class Doc Comment
  *
  * @category Class
+ * @description Obits search response
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class Obits implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'Obits';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +61,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'data' => '\Obada\Entities\Obit[]',
+        'meta' => '\Obada\Entities\ObitsMeta'
     ];
 
     /**
@@ -71,7 +73,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'data' => null,
+        'meta' => null
     ];
 
     /**
@@ -101,7 +104,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'data' => 'data',
+        'meta' => 'meta'
     ];
 
     /**
@@ -110,7 +114,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'data' => 'setData',
+        'meta' => 'setMeta'
     ];
 
     /**
@@ -119,7 +124,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'data' => 'getData',
+        'meta' => 'getMeta'
     ];
 
     /**
@@ -180,6 +186,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['meta'] = $data['meta'] ?? null;
     }
 
     /**
@@ -209,7 +216,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return \Obada\Entities\Obit[]|null
      */
     public function getData()
     {
@@ -219,13 +226,37 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param \Obada\Entities\Obit[]|null $data data
      *
      * @return self
      */
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return \Obada\Entities\ObitsMeta|null
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param \Obada\Entities\ObitsMeta|null $meta meta
+     *
+     * @return self
+     */
+    public function setMeta($meta)
+    {
+        $this->container['meta'] = $meta;
 
         return $this;
     }

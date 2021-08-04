@@ -74,7 +74,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => '\Obada\Entities\DocumentLink[]',
         'structuredData' => '\Obada\Entities\StructureDataRecord[]',
         'modifiedOn' => 'int',
-        'rootHash' => 'string'
+        'checksum' => 'string'
     ];
 
     /**
@@ -98,7 +98,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => null,
         'structuredData' => null,
         'modifiedOn' => 'int64',
-        'rootHash' => null
+        'checksum' => null
     ];
 
     /**
@@ -141,7 +141,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => 'doc_links',
         'structuredData' => 'structured_data',
         'modifiedOn' => 'modified_on',
-        'rootHash' => 'root_hash'
+        'checksum' => 'checksum'
     ];
 
     /**
@@ -163,7 +163,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => 'setDocLinks',
         'structuredData' => 'setStructuredData',
         'modifiedOn' => 'setModifiedOn',
-        'rootHash' => 'setRootHash'
+        'checksum' => 'setChecksum'
     ];
 
     /**
@@ -185,7 +185,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => 'getDocLinks',
         'structuredData' => 'getStructuredData',
         'modifiedOn' => 'getModifiedOn',
-        'rootHash' => 'getRootHash'
+        'checksum' => 'getChecksum'
     ];
 
     /**
@@ -258,7 +258,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['docLinks'] = $data['docLinks'] ?? null;
         $this->container['structuredData'] = $data['structuredData'] ?? null;
         $this->container['modifiedOn'] = $data['modifiedOn'] ?? null;
-        $this->container['rootHash'] = $data['rootHash'] ?? null;
+        $this->container['checksum'] = $data['checksum'] ?? null;
     }
 
     /**
@@ -270,20 +270,8 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['obitDid'] === null) {
-            $invalidProperties[] = "'obitDid' can't be null";
-        }
-        if ($this->container['usn'] === null) {
-            $invalidProperties[] = "'usn' can't be null";
-        }
-        if ($this->container['obitAlternateIds'] === null) {
-            $invalidProperties[] = "'obitAlternateIds' can't be null";
-        }
         if ($this->container['ownerDid'] === null) {
             $invalidProperties[] = "'ownerDid' can't be null";
-        }
-        if ($this->container['obitStatus'] === null) {
-            $invalidProperties[] = "'obitStatus' can't be null";
         }
         if ($this->container['manufacturer'] === null) {
             $invalidProperties[] = "'manufacturer' can't be null";
@@ -293,9 +281,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['serialNumberHash'] === null) {
             $invalidProperties[] = "'serialNumberHash' can't be null";
-        }
-        if ($this->container['rootHash'] === null) {
-            $invalidProperties[] = "'rootHash' can't be null";
         }
         return $invalidProperties;
     }
@@ -315,7 +300,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets obitDid
      *
-     * @return string
+     * @return string|null
      */
     public function getObitDid()
     {
@@ -325,7 +310,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets obitDid
      *
-     * @param string $obitDid OBADA decentralized identifier
+     * @param string|null $obitDid OBADA decentralized identifier
      *
      * @return self
      */
@@ -339,7 +324,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets usn
      *
-     * @return string
+     * @return string|null
      */
     public function getUsn()
     {
@@ -349,7 +334,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets usn
      *
-     * @param string $usn Test An 8-12 character “URL Shortened” obit. Create the USN by Base(58) encoding the OBIT ID. Take the first 8 characters. Check for duplicates. With 16 million OBITs there is a 40% chance of collision. If so, add 4 characters. Repeat as necessary until a unique USN is generated.
+     * @param string|null $usn Test An 8-12 character “URL Shortened” obit. Create the USN by Base(58) encoding the OBIT ID. Take the first 8 characters. Check for duplicates. With 16 million OBITs there is a 40% chance of collision. If so, add 4 characters. Repeat as necessary until a unique USN is generated.
      *
      * @return self
      */
@@ -363,7 +348,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets obitAlternateIds
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getObitAlternateIds()
     {
@@ -373,7 +358,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets obitAlternateIds
      *
-     * @param string[] $obitAlternateIds Client generated things. First hash + last hash
+     * @param string[]|null $obitAlternateIds Client generated things. First hash + last hash
      *
      * @return self
      */
@@ -435,7 +420,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets obitStatus
      *
-     * @return string
+     * @return string|null
      */
     public function getObitStatus()
     {
@@ -445,7 +430,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets obitStatus
      *
-     * @param string $obitStatus Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER
+     * @param string|null $obitStatus Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER
      *
      * @return self
      */
@@ -625,25 +610,25 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets rootHash
+     * Gets checksum
      *
-     * @return string
+     * @return string|null
      */
-    public function getRootHash()
+    public function getChecksum()
     {
-        return $this->container['rootHash'];
+        return $this->container['checksum'];
     }
 
     /**
-     * Sets rootHash
+     * Sets checksum
      *
-     * @param string $rootHash Hash calculated by SHA256 (previous Obit root hash + Obit data). TODO: Discuss root hash with Rohi.
+     * @param string|null $checksum Hash calculated by SHA256 (previous Obit checksum + Obit data).
      *
      * @return self
      */
-    public function setRootHash($rootHash)
+    public function setChecksum($checksum)
     {
-        $this->container['rootHash'] = $rootHash;
+        $this->container['checksum'] = $checksum;
 
         return $this;
     }

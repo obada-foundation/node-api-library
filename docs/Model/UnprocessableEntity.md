@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** |  | [optional] [default to 422]
-**message** | **string** |  | [optional] [default to 'The given data was invalid.']
-**errors** | [**array<string,string[]>**](array.md) |  | [optional]
+**error** | **string** |  | [optional] [default to 'data validation error']
+**fields** | [**\Obada\Entities\UnprocessableEntityFields[]**](UnprocessableEntityFields.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

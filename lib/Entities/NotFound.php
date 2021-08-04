@@ -61,8 +61,7 @@ class NotFound implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'int',
-        'message' => 'string'
+        'error' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class NotFound implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'code' => null,
-        'message' => null
+        'error' => null
     ];
 
     /**
@@ -104,8 +102,7 @@ class NotFound implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message'
+        'error' => 'error'
     ];
 
     /**
@@ -114,8 +111,7 @@ class NotFound implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage'
+        'error' => 'setError'
     ];
 
     /**
@@ -124,8 +120,7 @@ class NotFound implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage'
+        'error' => 'getError'
     ];
 
     /**
@@ -185,8 +180,7 @@ class NotFound implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = $data['code'] ?? 404;
-        $this->container['message'] = $data['message'] ?? 'The requested resource could not be found.';
+        $this->container['error'] = $data['error'] ?? 'Not found';
     }
 
     /**
@@ -214,49 +208,25 @@ class NotFound implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets code
-     *
-     * @return int|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int|null $code code
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
+     * Gets error
      *
      * @return string|null
      */
-    public function getMessage()
+    public function getError()
     {
-        return $this->container['message'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets message
+     * Sets error
      *
-     * @param string|null $message message
+     * @param string|null $error error
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setError($error)
     {
-        $this->container['message'] = $message;
+        $this->container['error'] = $error;
 
         return $this;
     }

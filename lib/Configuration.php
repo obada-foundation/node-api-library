@@ -84,7 +84,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://dev.api.obada.io';
+    protected $host = 'https://dev.node.obada.io';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -439,11 +439,11 @@ class Configuration
     {
         return [
             [
-                "url" => "https://dev.api.obada.io",
+                "url" => "https://dev.node.obada.io",
                 "description" => "OBADA Staging API",
             ],
             [
-                "url" => "http://api.obada.io",
+                "url" => "http://obs.node.obada.io",
                 "description" => "OBADA Production API",
             ]
         ];
