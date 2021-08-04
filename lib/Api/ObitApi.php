@@ -670,6 +670,8 @@ class ObitApi
     /**
      * Operation get
      *
+     * Get Obit by DID or USN
+     *
      * @param  string $obitDid The given ObitDID argument (required)
      *
      * @throws \Obada\ApiException on non-2xx response
@@ -684,6 +686,8 @@ class ObitApi
 
     /**
      * Operation getWithHttpInfo
+     *
+     * Get Obit by DID or USN
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -809,6 +813,8 @@ class ObitApi
     /**
      * Operation getAsync
      *
+     * Get Obit by DID or USN
+     *
      * @param  string $obitDid The given ObitDID argument (required)
      *
      * @throws \InvalidArgumentException
@@ -826,6 +832,8 @@ class ObitApi
 
     /**
      * Operation getAsyncWithHttpInfo
+     *
+     * Get Obit by DID or USN
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -966,6 +974,8 @@ class ObitApi
     /**
      * Operation history
      *
+     * Get Obit history
+     *
      * @param  string $obitDid The given ObitDID argument (required)
      *
      * @throws \Obada\ApiException on non-2xx response
@@ -980,6 +990,8 @@ class ObitApi
 
     /**
      * Operation historyWithHttpInfo
+     *
+     * Get Obit history
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -1085,6 +1097,8 @@ class ObitApi
     /**
      * Operation historyAsync
      *
+     * Get Obit history
+     *
      * @param  string $obitDid The given ObitDID argument (required)
      *
      * @throws \InvalidArgumentException
@@ -1102,6 +1116,8 @@ class ObitApi
 
     /**
      * Operation historyAsyncWithHttpInfo
+     *
+     * Get Obit history
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -1461,6 +1477,8 @@ class ObitApi
     /**
      * Operation search
      *
+     * Search obits by query
+     *
      * @param  string $q Query argument that used for a fulltext search (optional)
      * @param  int $offset Number of records to skip for pagination. (optional, default to 0)
      *
@@ -1476,6 +1494,8 @@ class ObitApi
 
     /**
      * Operation searchWithHttpInfo
+     *
+     * Search obits by query
      *
      * @param  string $q Query argument that used for a fulltext search (optional)
      * @param  int $offset Number of records to skip for pagination. (optional, default to 0)
@@ -1582,6 +1602,8 @@ class ObitApi
     /**
      * Operation searchAsync
      *
+     * Search obits by query
+     *
      * @param  string $q Query argument that used for a fulltext search (optional)
      * @param  int $offset Number of records to skip for pagination. (optional, default to 0)
      *
@@ -1600,6 +1622,8 @@ class ObitApi
 
     /**
      * Operation searchAsyncWithHttpInfo
+     *
+     * Search obits by query
      *
      * @param  string $q Query argument that used for a fulltext search (optional)
      * @param  int $offset Number of records to skip for pagination. (optional, default to 0)

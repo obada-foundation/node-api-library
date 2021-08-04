@@ -1,15 +1,15 @@
 # Obada\ObitApi
 
-All URIs are relative to https://dev.api.obada.io.
+All URIs are relative to https://dev.node.obada.io.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**checksum()**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
 [**generateId()**](ObitApi.md#generateId) | **POST** /obit/id | Generate Obit ID
-[**get()**](ObitApi.md#get) | **GET** /obits/{obit_did} | 
-[**history()**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | 
+[**get()**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
+[**history()**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history
 [**save()**](ObitApi.md#save) | **POST** /obits | Save Obit
-[**search()**](ObitApi.md#search) | **GET** /obits | 
+[**search()**](ObitApi.md#search) | **GET** /obits | Search obits by query
 
 
 ## `checksum()`
@@ -128,9 +128,9 @@ No authorization required
 get($obitDid): \Obada\Entities\Obit
 ```
 
+Get Obit by DID or USN
 
-
-Shows the information about single Obit by given ObitDID
+Get a single Obit by given ObitDID or USN
 
 ### Example
 
@@ -184,9 +184,9 @@ No authorization required
 history($obitDid): \Obada\Entities\InlineResponse200
 ```
 
+Get Obit history
 
-
-Shows the history of changes by given Obit with ObitDID
+Shows the history of changes by given Obit with ObitDID or USN
 
 ### Example
 
@@ -295,7 +295,7 @@ No authorization required
 search($q, $offset): \Obada\Entities\Obits
 ```
 
-
+Search obits by query
 
 Implements a fulltext search for obits by \"searchTerm\".
 
