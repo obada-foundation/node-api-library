@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**checksum()**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
 [**generateId()**](ObitApi.md#generateId) | **POST** /obit/id | Generate Obit ID
 [**get()**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
-[**history()**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history
+[**history()**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
 [**save()**](ObitApi.md#save) | **POST** /obits | Save Obit
 [**search()**](ObitApi.md#search) | **GET** /obits | Search obits by query
 
@@ -184,7 +184,7 @@ No authorization required
 history($obitDid): \Obada\Entities\InlineResponse200
 ```
 
-Get Obit history
+Get Obit history by DID or USN
 
 Shows the history of changes by given Obit with ObitDID or USN
 

@@ -124,7 +124,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\Checksum|\Obada\Entities\InternalServerError
+     * @return \Obada\Entities\Checksum|\Obada\Entities\UnprocessableEntity|\Obada\Entities\InternalServerError
      */
     public function checksum($obit = null)
     {
@@ -141,7 +141,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\Checksum|\Obada\Entities\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\Checksum|\Obada\Entities\UnprocessableEntity|\Obada\Entities\InternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function checksumWithHttpInfo($obit = null)
     {
@@ -188,6 +188,18 @@ class ObitApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Obada\Entities\UnprocessableEntity' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\UnprocessableEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\Obada\Entities\InternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -221,6 +233,14 @@ class ObitApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Obada\Entities\Checksum',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Obada\Entities\UnprocessableEntity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -400,7 +420,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Obada\Entities\ObitId|\Obada\Entities\InternalServerError
+     * @return \Obada\Entities\ObitId|\Obada\Entities\UnprocessableEntity|\Obada\Entities\InternalServerError
      */
     public function generateId($requestObitId = null)
     {
@@ -417,7 +437,7 @@ class ObitApi
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Obada\Entities\ObitId|\Obada\Entities\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Obada\Entities\ObitId|\Obada\Entities\UnprocessableEntity|\Obada\Entities\InternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateIdWithHttpInfo($requestObitId = null)
     {
@@ -464,6 +484,18 @@ class ObitApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Obada\Entities\UnprocessableEntity' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Obada\Entities\UnprocessableEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\Obada\Entities\InternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -497,6 +529,14 @@ class ObitApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Obada\Entities\ObitId',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Obada\Entities\UnprocessableEntity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -974,7 +1014,7 @@ class ObitApi
     /**
      * Operation history
      *
-     * Get Obit history
+     * Get Obit history by DID or USN
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -991,7 +1031,7 @@ class ObitApi
     /**
      * Operation historyWithHttpInfo
      *
-     * Get Obit history
+     * Get Obit history by DID or USN
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -1097,7 +1137,7 @@ class ObitApi
     /**
      * Operation historyAsync
      *
-     * Get Obit history
+     * Get Obit history by DID or USN
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -1117,7 +1157,7 @@ class ObitApi
     /**
      * Operation historyAsyncWithHttpInfo
      *
-     * Get Obit history
+     * Get Obit history by DID or USN
      *
      * @param  string $obitDid The given ObitDID argument (required)
      *
@@ -1318,6 +1358,14 @@ class ObitApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Obada\Entities\UnprocessableEntity',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
