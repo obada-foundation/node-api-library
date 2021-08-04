@@ -75,10 +75,11 @@ Class | Method | HTTP request | Description
 *ObitApi* | [**checksum**](docs/Api/ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
 *ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
 *ObitApi* | [**generateId**](docs/Api/ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
+*ObitApi* | [**get**](docs/Api/ObitApi.md#get) | **GET** /obits/{obit_did} | 
+*ObitApi* | [**history**](docs/Api/ObitApi.md#history) | **GET** /obits/{obit_did}/history | 
 *ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
+*ObitApi* | [**save**](docs/Api/ObitApi.md#save) | **POST** /obit | Save Obit
 *ObitApi* | [**search**](docs/Api/ObitApi.md#search) | **GET** /obits | 
-*ObitApi* | [**showObit**](docs/Api/ObitApi.md#showobit) | **GET** /obits/{obit_did} | 
-*ObitApi* | [**showObitHistory**](docs/Api/ObitApi.md#showobithistory) | **GET** /obits/{obit_did}/history | 
 *ObitApi* | [**updateObit**](docs/Api/ObitApi.md#updateobit) | **PUT** /obits/{obit_did} | 
 
 ## Models
