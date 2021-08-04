@@ -1,9 +1,10 @@
-# # InlineResponse200
+# # UnprocessableEntityFields
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Obada\Entities\ObitHistory[]**](ObitHistory.md) |  | [optional]
+**field** | **string** |  | [optional] [default to 'serial_number']
+**error** | **string** |  | [optional] [default to 'serial_number is a required field']
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

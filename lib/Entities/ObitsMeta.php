@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * ObitsMeta
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * ObitsMeta Class Doc Comment
  *
  * @category Class
  * @package  Obada
@@ -43,7 +43,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class ObitsMeta implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'Obits_meta';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'total' => 'int',
+        'perPage' => 'int',
+        'currentPage' => 'int',
+        'lastPage' => 'int'
     ];
 
     /**
@@ -71,7 +74,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'total' => null,
+        'perPage' => null,
+        'currentPage' => null,
+        'lastPage' => null
     ];
 
     /**
@@ -101,7 +107,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'total' => 'total',
+        'perPage' => 'per_page',
+        'currentPage' => 'current_page',
+        'lastPage' => 'last_page'
     ];
 
     /**
@@ -110,7 +119,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'total' => 'setTotal',
+        'perPage' => 'setPerPage',
+        'currentPage' => 'setCurrentPage',
+        'lastPage' => 'setLastPage'
     ];
 
     /**
@@ -119,7 +131,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'total' => 'getTotal',
+        'perPage' => 'getPerPage',
+        'currentPage' => 'getCurrentPage',
+        'lastPage' => 'getLastPage'
     ];
 
     /**
@@ -179,7 +194,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['total'] = $data['total'] ?? null;
+        $this->container['perPage'] = $data['perPage'] ?? null;
+        $this->container['currentPage'] = $data['currentPage'] ?? null;
+        $this->container['lastPage'] = $data['lastPage'] ?? null;
     }
 
     /**
@@ -207,25 +225,97 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets total
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return int|null
      */
-    public function getData()
+    public function getTotal()
     {
-        return $this->container['data'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets data
+     * Sets total
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param int|null $total total
      *
      * @return self
      */
-    public function setData($data)
+    public function setTotal($total)
     {
-        $this->container['data'] = $data;
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets perPage
+     *
+     * @return int|null
+     */
+    public function getPerPage()
+    {
+        return $this->container['perPage'];
+    }
+
+    /**
+     * Sets perPage
+     *
+     * @param int|null $perPage perPage
+     *
+     * @return self
+     */
+    public function setPerPage($perPage)
+    {
+        $this->container['perPage'] = $perPage;
+
+        return $this;
+    }
+
+    /**
+     * Gets currentPage
+     *
+     * @return int|null
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['currentPage'];
+    }
+
+    /**
+     * Sets currentPage
+     *
+     * @param int|null $currentPage currentPage
+     *
+     * @return self
+     */
+    public function setCurrentPage($currentPage)
+    {
+        $this->container['currentPage'] = $currentPage;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastPage
+     *
+     * @return int|null
+     */
+    public function getLastPage()
+    {
+        return $this->container['lastPage'];
+    }
+
+    /**
+     * Sets lastPage
+     *
+     * @param int|null $lastPage lastPage
+     *
+     * @return self
+     */
+    public function setLastPage($lastPage)
+    {
+        $this->container['lastPage'] = $lastPage;
 
         return $this;
     }

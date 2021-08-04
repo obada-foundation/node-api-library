@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * UnprocessableEntityFields
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * UnprocessableEntityFields Class Doc Comment
  *
  * @category Class
  * @package  Obada
@@ -43,7 +43,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnprocessableEntityFields implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'UnprocessableEntity_fields';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'field' => 'string',
+        'error' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'field' => null,
+        'error' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'field' => 'field',
+        'error' => 'error'
     ];
 
     /**
@@ -110,7 +113,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'field' => 'setField',
+        'error' => 'setError'
     ];
 
     /**
@@ -119,7 +123,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'field' => 'getField',
+        'error' => 'getError'
     ];
 
     /**
@@ -179,7 +184,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['field'] = $data['field'] ?? 'serial_number';
+        $this->container['error'] = $data['error'] ?? 'serial_number is a required field';
     }
 
     /**
@@ -207,25 +213,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets field
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getField()
     {
-        return $this->container['data'];
+        return $this->container['field'];
     }
 
     /**
-     * Sets data
+     * Sets field
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string|null $field field
      *
      * @return self
      */
-    public function setData($data)
+    public function setField($field)
     {
-        $this->container['data'] = $data;
+        $this->container['field'] = $field;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return string|null
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param string|null $error error
+     *
+     * @return self
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
 
         return $this;
     }

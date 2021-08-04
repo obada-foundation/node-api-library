@@ -58,9 +58,10 @@ $apiInstance = new Obada\Api\ObitApi(
 $obit = new \Obada\Entities\Obit(); // \Obada\Entities\Obit
 
 try {
-    $apiInstance->createObit($obit);
+    $result = $apiInstance->checksum($obit);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObitApi->createObit: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObitApi->checksum: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -71,24 +72,33 @@ All URIs are relative to *https://dev.api.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ObitApi* | [**checksum**](docs/Api/ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
 *ObitApi* | [**createObit**](docs/Api/ObitApi.md#createobit) | **POST** /obits | 
+*ObitApi* | [**generateId**](docs/Api/ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
 *ObitApi* | [**removeObit**](docs/Api/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
-*ObitApi* | [**searchObits**](docs/Api/ObitApi.md#searchobits) | **GET** /obits | 
+*ObitApi* | [**search**](docs/Api/ObitApi.md#search) | **GET** /obits | 
 *ObitApi* | [**showObit**](docs/Api/ObitApi.md#showobit) | **GET** /obits/{obit_did} | 
 *ObitApi* | [**showObitHistory**](docs/Api/ObitApi.md#showobithistory) | **GET** /obits/{obit_did}/history | 
 *ObitApi* | [**updateObit**](docs/Api/ObitApi.md#updateobit) | **PUT** /obits/{obit_did} | 
 
 ## Models
 
+- [Checksum](docs/Model/Checksum.md)
 - [DocumentLink](docs/Model/DocumentLink.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
-- [InlineResponse2001](docs/Model/InlineResponse2001.md)
+- [InlineResponse201](docs/Model/InlineResponse201.md)
+- [InternalServerError](docs/Model/InternalServerError.md)
 - [MetaDataRecord](docs/Model/MetaDataRecord.md)
 - [NotFound](docs/Model/NotFound.md)
 - [Obit](docs/Model/Obit.md)
 - [ObitHistory](docs/Model/ObitHistory.md)
+- [ObitId](docs/Model/ObitId.md)
+- [Obits](docs/Model/Obits.md)
+- [ObitsMeta](docs/Model/ObitsMeta.md)
+- [RequestObitId](docs/Model/RequestObitId.md)
 - [StructureDataRecord](docs/Model/StructureDataRecord.md)
 - [UnprocessableEntity](docs/Model/UnprocessableEntity.md)
+- [UnprocessableEntityFields](docs/Model/UnprocessableEntityFields.md)
 
 ## Authorization
 All endpoints do not require authorization.

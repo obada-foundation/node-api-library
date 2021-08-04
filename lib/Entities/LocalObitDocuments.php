@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * LocalObitDocuments
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * LocalObitDocuments Class Doc Comment
  *
  * @category Class
+ * @description Document hashlink
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class LocalObitDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'LocalObit_documents';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +61,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'name' => 'string',
+        'hashlink' => 'string'
     ];
 
     /**
@@ -71,7 +73,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'name' => null,
+        'hashlink' => null
     ];
 
     /**
@@ -101,7 +104,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'name' => 'name',
+        'hashlink' => 'hashlink'
     ];
 
     /**
@@ -110,7 +114,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'name' => 'setName',
+        'hashlink' => 'setHashlink'
     ];
 
     /**
@@ -119,7 +124,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'name' => 'getName',
+        'hashlink' => 'getHashlink'
     ];
 
     /**
@@ -179,7 +185,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['hashlink'] = $data['hashlink'] ?? null;
     }
 
     /**
@@ -191,6 +198,12 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['hashlink'] === null) {
+            $invalidProperties[] = "'hashlink' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -207,25 +220,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets name
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string
      */
-    public function getData()
+    public function getName()
     {
-        return $this->container['data'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets data
+     * Sets name
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string $name Associative name of hashlink
      *
      * @return self
      */
-    public function setData($data)
+    public function setName($name)
     {
-        $this->container['data'] = $data;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets hashlink
+     *
+     * @return string
+     */
+    public function getHashlink()
+    {
+        return $this->container['hashlink'];
+    }
+
+    /**
+     * Sets hashlink
+     *
+     * @param string $hashlink Hashlink
+     *
+     * @return self
+     */
+    public function setHashlink($hashlink)
+    {
+        $this->container['hashlink'] = $hashlink;
 
         return $this;
     }

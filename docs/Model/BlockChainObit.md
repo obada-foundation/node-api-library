@@ -1,9 +1,10 @@
-# # InlineResponse200
+# # BlockChainObit
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Obada\Entities\ObitHistory[]**](ObitHistory.md) |  | [optional]
+**rootHash** | **string** |  | [optional]
+**obitDid** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

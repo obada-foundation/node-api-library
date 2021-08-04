@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * Checksum
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * Checksum Class Doc Comment
  *
  * @category Class
+ * @description Obit checksum
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class Checksum implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'Checksum';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +61,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'checksum' => 'string'
     ];
 
     /**
@@ -71,7 +72,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'checksum' => null
     ];
 
     /**
@@ -101,7 +102,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'checksum' => 'checksum'
     ];
 
     /**
@@ -110,7 +111,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'checksum' => 'setChecksum'
     ];
 
     /**
@@ -119,7 +120,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'checksum' => 'getChecksum'
     ];
 
     /**
@@ -179,7 +180,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['checksum'] = $data['checksum'] ?? null;
     }
 
     /**
@@ -207,25 +208,25 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets checksum
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getChecksum()
     {
-        return $this->container['data'];
+        return $this->container['checksum'];
     }
 
     /**
-     * Sets data
+     * Sets checksum
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string|null $checksum checksum
      *
      * @return self
      */
-    public function setData($data)
+    public function setChecksum($checksum)
     {
-        $this->container['data'] = $data;
+        $this->container['checksum'] = $checksum;
 
         return $this;
     }

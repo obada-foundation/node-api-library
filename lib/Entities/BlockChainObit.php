@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * BlockChainObit
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * BlockChainObit Class Doc Comment
  *
  * @category Class
  * @package  Obada
@@ -43,7 +43,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class BlockChainObit implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'BlockChainObit';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'rootHash' => 'string',
+        'obitDid' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'rootHash' => null,
+        'obitDid' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'rootHash' => 'root_hash',
+        'obitDid' => 'obit_did'
     ];
 
     /**
@@ -110,7 +113,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'rootHash' => 'setRootHash',
+        'obitDid' => 'setObitDid'
     ];
 
     /**
@@ -119,7 +123,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'rootHash' => 'getRootHash',
+        'obitDid' => 'getObitDid'
     ];
 
     /**
@@ -179,7 +184,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['rootHash'] = $data['rootHash'] ?? null;
+        $this->container['obitDid'] = $data['obitDid'] ?? null;
     }
 
     /**
@@ -207,25 +213,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets rootHash
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getRootHash()
     {
-        return $this->container['data'];
+        return $this->container['rootHash'];
     }
 
     /**
-     * Sets data
+     * Sets rootHash
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string|null $rootHash rootHash
      *
      * @return self
      */
-    public function setData($data)
+    public function setRootHash($rootHash)
     {
-        $this->container['data'] = $data;
+        $this->container['rootHash'] = $rootHash;
+
+        return $this;
+    }
+
+    /**
+     * Gets obitDid
+     *
+     * @return string|null
+     */
+    public function getObitDid()
+    {
+        return $this->container['obitDid'];
+    }
+
+    /**
+     * Sets obitDid
+     *
+     * @param string|null $obitDid obitDid
+     *
+     * @return self
+     */
+    public function setObitDid($obitDid)
+    {
+        $this->container['obitDid'] = $obitDid;
 
         return $this;
     }

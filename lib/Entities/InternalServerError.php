@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * InternalServerError
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * InternalServerError Class Doc Comment
  *
  * @category Class
+ * @description A typical 500 error.
  * @package  Obada
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class InternalServerError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'InternalServerError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +61,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'error' => 'string'
     ];
 
     /**
@@ -71,7 +72,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'error' => null
     ];
 
     /**
@@ -101,7 +102,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'error' => 'error'
     ];
 
     /**
@@ -110,7 +111,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'error' => 'setError'
     ];
 
     /**
@@ -119,7 +120,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'error' => 'getError'
     ];
 
     /**
@@ -179,7 +180,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['error'] = $data['error'] ?? 'Internal Server Error';
     }
 
     /**
@@ -207,25 +208,25 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets error
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getError()
     {
-        return $this->container['data'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets data
+     * Sets error
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string|null $error error
      *
      * @return self
      */
-    public function setData($data)
+    public function setError($error)
     {
-        $this->container['data'] = $data;
+        $this->container['error'] = $error;
 
         return $this;
     }

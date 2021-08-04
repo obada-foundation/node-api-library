@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * InlineResponse201
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Obada\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * InlineResponse201 Class Doc Comment
  *
  * @category Class
  * @package  Obada
@@ -43,7 +43,7 @@ use \Obada\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse201 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'inline_response_201';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Obada\Entities\ObitHistory[]'
+        'did' => 'string',
+        'usn' => 'string',
+        'hash' => 'string'
     ];
 
     /**
@@ -71,7 +73,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'did' => null,
+        'usn' => null,
+        'hash' => null
     ];
 
     /**
@@ -101,7 +105,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'did' => 'did',
+        'usn' => 'usn',
+        'hash' => 'hash'
     ];
 
     /**
@@ -110,7 +116,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'did' => 'setDid',
+        'usn' => 'setUsn',
+        'hash' => 'setHash'
     ];
 
     /**
@@ -119,7 +127,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'did' => 'getDid',
+        'usn' => 'getUsn',
+        'hash' => 'getHash'
     ];
 
     /**
@@ -179,7 +189,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['did'] = $data['did'] ?? null;
+        $this->container['usn'] = $data['usn'] ?? null;
+        $this->container['hash'] = $data['hash'] ?? null;
     }
 
     /**
@@ -207,25 +219,73 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets did
      *
-     * @return \Obada\Entities\ObitHistory[]|null
+     * @return string|null
      */
-    public function getData()
+    public function getDid()
     {
-        return $this->container['data'];
+        return $this->container['did'];
     }
 
     /**
-     * Sets data
+     * Sets did
      *
-     * @param \Obada\Entities\ObitHistory[]|null $data data
+     * @param string|null $did did
      *
      * @return self
      */
-    public function setData($data)
+    public function setDid($did)
     {
-        $this->container['data'] = $data;
+        $this->container['did'] = $did;
+
+        return $this;
+    }
+
+    /**
+     * Gets usn
+     *
+     * @return string|null
+     */
+    public function getUsn()
+    {
+        return $this->container['usn'];
+    }
+
+    /**
+     * Sets usn
+     *
+     * @param string|null $usn usn
+     *
+     * @return self
+     */
+    public function setUsn($usn)
+    {
+        $this->container['usn'] = $usn;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash
+     *
+     * @return string|null
+     */
+    public function getHash()
+    {
+        return $this->container['hash'];
+    }
+
+    /**
+     * Sets hash
+     *
+     * @param string|null $hash hash
+     *
+     * @return self
+     */
+    public function setHash($hash)
+    {
+        $this->container['hash'] = $hash;
 
         return $this;
     }
