@@ -5,7 +5,7 @@ All URIs are relative to http://obs.node.obada.io.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**checksum()**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates Obit checksum
-[**generateId()**](ObitApi.md#generateId) | **POST** /obit/id | Generate Obit ID
+[**generateDID()**](ObitApi.md#generateDID) | **POST** /obit/did | Generate Obit DID
 [**get()**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 [**history()**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
 [**save()**](ObitApi.md#save) | **POST** /obits | Save Obit
@@ -66,15 +66,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `generateId()`
+## `generateDID()`
 
 ```php
-generateId($requestObitId): \Obada\Entities\ObitId
+generateDID($requestObitDID): \Obada\Entities\ObitDID
 ```
 
-Generate Obit ID
+Generate Obit DID
 
-Returns the Obit ID for a given device_id, part_number and serial_number input.
+Returns the Obit DID for a given device_id, part_number and serial_number input.
 
 ### Example
 
@@ -89,13 +89,13 @@ $apiInstance = new Obada\Api\ObitApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$requestObitId = new \Obada\Entities\RequestObitId(); // \Obada\Entities\RequestObitId
+$requestObitDID = new \Obada\Entities\RequestObitDID(); // \Obada\Entities\RequestObitDID
 
 try {
-    $result = $apiInstance->generateId($requestObitId);
+    $result = $apiInstance->generateDID($requestObitDID);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObitApi->generateId: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObitApi->generateDID: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -103,11 +103,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestObitId** | [**\Obada\Entities\RequestObitId**](../Model/RequestObitId.md)|  | [optional]
+ **requestObitDID** | [**\Obada\Entities\RequestObitDID**](../Model/RequestObitDID.md)|  | [optional]
 
 ### Return type
 
-[**\Obada\Entities\ObitId**](../Model/ObitId.md)
+[**\Obada\Entities\ObitDID**](../Model/ObitDID.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ $apiInstance = new Obada\Api\ObitApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
+$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID or USN argument
 
 try {
     $result = $apiInstance->get($obitDid);
@@ -159,7 +159,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obitDid** | **string**| The given ObitDID argument |
+ **obitDid** | **string**| The given ObitDID or USN argument |
 
 ### Return type
 
