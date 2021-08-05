@@ -42,10 +42,3 @@ lib/Entities/UnprocessableEntityFields.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/ChecksumTest.php
-test/Model/InternalServerErrorTest.php
-test/Model/ObitIdTest.php
-test/Model/ObitsMetaTest.php
-test/Model/ObitsTest.php
-test/Model/RequestObitIdTest.php
-test/Model/UnprocessableEntityFieldsTest.php
