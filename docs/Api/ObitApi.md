@@ -1,10 +1,10 @@
 # Obada\ObitApi
 
-All URIs are relative to https://dev.node.obada.io.
+All URIs are relative to http://obs.node.obada.io.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checksum()**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
+[**checksum()**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates obit checksum.
 [**generateId()**](ObitApi.md#generateId) | **POST** /obit/id | Generate Obit ID
 [**get()**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 [**history()**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 checksum($obit): \Obada\Entities\Checksum
 ```
 
-Generates the obit checksum.
+Generates obit checksum.
 
 ### Example
 
@@ -201,7 +201,7 @@ $apiInstance = new Obada\Api\ObitApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID argument
+$obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5; // string | The given ObitDID or USN argument
 
 try {
     $result = $apiInstance->history($obitDid);
@@ -215,7 +215,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obitDid** | **string**| The given ObitDID argument |
+ **obitDid** | **string**| The given ObitDID or USN argument |
 
 ### Return type
 

@@ -118,7 +118,7 @@ class ObitApi
     /**
      * Operation checksum
      *
-     * Generates the obit checksum.
+     * Generates obit checksum.
      *
      * @param  \Obada\Entities\Obit $obit obit (optional)
      *
@@ -135,7 +135,7 @@ class ObitApi
     /**
      * Operation checksumWithHttpInfo
      *
-     * Generates the obit checksum.
+     * Generates obit checksum.
      *
      * @param  \Obada\Entities\Obit $obit (optional)
      *
@@ -261,7 +261,7 @@ class ObitApi
     /**
      * Operation checksumAsync
      *
-     * Generates the obit checksum.
+     * Generates obit checksum.
      *
      * @param  \Obada\Entities\Obit $obit (optional)
      *
@@ -281,7 +281,7 @@ class ObitApi
     /**
      * Operation checksumAsyncWithHttpInfo
      *
-     * Generates the obit checksum.
+     * Generates obit checksum.
      *
      * @param  \Obada\Entities\Obit $obit (optional)
      *
@@ -1016,7 +1016,7 @@ class ObitApi
      *
      * Get Obit history by DID or USN
      *
-     * @param  string $obitDid The given ObitDID argument (required)
+     * @param  string $obitDid The given ObitDID or USN argument (required)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1033,7 +1033,7 @@ class ObitApi
      *
      * Get Obit history by DID or USN
      *
-     * @param  string $obitDid The given ObitDID argument (required)
+     * @param  string $obitDid The given ObitDID or USN argument (required)
      *
      * @throws \Obada\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1139,7 +1139,7 @@ class ObitApi
      *
      * Get Obit history by DID or USN
      *
-     * @param  string $obitDid The given ObitDID argument (required)
+     * @param  string $obitDid The given ObitDID or USN argument (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1159,7 +1159,7 @@ class ObitApi
      *
      * Get Obit history by DID or USN
      *
-     * @param  string $obitDid The given ObitDID argument (required)
+     * @param  string $obitDid The given ObitDID or USN argument (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1205,7 +1205,7 @@ class ObitApi
     /**
      * Create request for operation 'history'
      *
-     * @param  string $obitDid The given ObitDID argument (required)
+     * @param  string $obitDid The given ObitDID or USN argument (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -185,7 +185,7 @@ class UnprocessableEntityFields implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->container['field'] = $data['field'] ?? 'serial_number';
-        $this->container['error'] = $data['error'] ?? 'serial_number is a required field';
+        $this->container['error'] = $data['error'] ?? 'serial_number is required field';
     }
 
     /**
