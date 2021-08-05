@@ -74,7 +74,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => '\Obada\Entities\DocumentLink[]',
         'structuredData' => '\Obada\Entities\StructureDataRecord[]',
         'modifiedOn' => 'int',
-        'rootHash' => 'string'
+        'checksum' => 'string'
     ];
 
     /**
@@ -98,7 +98,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => null,
         'structuredData' => null,
         'modifiedOn' => 'int64',
-        'rootHash' => null
+        'checksum' => null
     ];
 
     /**
@@ -141,7 +141,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => 'doc_links',
         'structuredData' => 'structured_data',
         'modifiedOn' => 'modified_on',
-        'rootHash' => 'root_hash'
+        'checksum' => 'checksum'
     ];
 
     /**
@@ -163,7 +163,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => 'setDocLinks',
         'structuredData' => 'setStructuredData',
         'modifiedOn' => 'setModifiedOn',
-        'rootHash' => 'setRootHash'
+        'checksum' => 'setChecksum'
     ];
 
     /**
@@ -185,7 +185,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'docLinks' => 'getDocLinks',
         'structuredData' => 'getStructuredData',
         'modifiedOn' => 'getModifiedOn',
-        'rootHash' => 'getRootHash'
+        'checksum' => 'getChecksum'
     ];
 
     /**
@@ -258,7 +258,7 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['docLinks'] = $data['docLinks'] ?? null;
         $this->container['structuredData'] = $data['structuredData'] ?? null;
         $this->container['modifiedOn'] = $data['modifiedOn'] ?? null;
-        $this->container['rootHash'] = $data['rootHash'] ?? null;
+        $this->container['checksum'] = $data['checksum'] ?? null;
     }
 
     /**
@@ -610,25 +610,25 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets rootHash
+     * Gets checksum
      *
      * @return string|null
      */
-    public function getRootHash()
+    public function getChecksum()
     {
-        return $this->container['rootHash'];
+        return $this->container['checksum'];
     }
 
     /**
-     * Sets rootHash
+     * Sets checksum
      *
-     * @param string|null $rootHash Hash calculated by SHA256 (previous Obit root hash + Obit data). TODO: Discuss root hash with Rohi.
+     * @param string|null $checksum Hash calculated by SHA256 (previous Obit checksum + Obit data).
      *
      * @return self
      */
-    public function setRootHash($rootHash)
+    public function setChecksum($checksum)
     {
-        $this->container['rootHash'] = $rootHash;
+        $this->container['checksum'] = $checksum;
 
         return $this;
     }

@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **docLinks** | [**\Obada\Entities\DocumentLink[]**](DocumentLink.md) | To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. | [optional]
 **structuredData** | [**\Obada\Entities\StructureDataRecord[]**](StructureDataRecord.md) | Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)) | [optional]
 **modifiedOn** | **int** | UNIX timestamp | [optional]
-**rootHash** | **string** | Hash calculated by SHA256 (previous Obit root hash + Obit data). TODO: Discuss root hash with Rohi. | [optional]
+**checksum** | **string** | Hash calculated by SHA256 (previous Obit checksum + Obit data). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

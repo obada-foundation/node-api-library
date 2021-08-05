@@ -61,9 +61,8 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'int',
-        'message' => 'string',
-        'errors' => 'array<string,string[]>'
+        'error' => 'string',
+        'fields' => '\Obada\Entities\UnprocessableEntityFields[]'
     ];
 
     /**
@@ -74,9 +73,8 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'code' => null,
-        'message' => null,
-        'errors' => null
+        'error' => null,
+        'fields' => null
     ];
 
     /**
@@ -106,9 +104,8 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'errors' => 'errors'
+        'error' => 'error',
+        'fields' => 'fields'
     ];
 
     /**
@@ -117,9 +114,8 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'errors' => 'setErrors'
+        'error' => 'setError',
+        'fields' => 'setFields'
     ];
 
     /**
@@ -128,9 +124,8 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'errors' => 'getErrors'
+        'error' => 'getError',
+        'fields' => 'getFields'
     ];
 
     /**
@@ -190,9 +185,8 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = $data['code'] ?? 422;
-        $this->container['message'] = $data['message'] ?? 'The given data was invalid.';
-        $this->container['errors'] = $data['errors'] ?? null;
+        $this->container['error'] = $data['error'] ?? 'data validation error';
+        $this->container['fields'] = $data['fields'] ?? null;
     }
 
     /**
@@ -220,73 +214,49 @@ class UnprocessableEntity implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets code
-     *
-     * @return int|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int|null $code code
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
+     * Gets error
      *
      * @return string|null
      */
-    public function getMessage()
+    public function getError()
     {
-        return $this->container['message'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets message
+     * Sets error
      *
-     * @param string|null $message message
+     * @param string|null $error error
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setError($error)
     {
-        $this->container['message'] = $message;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets fields
      *
-     * @return array<string,string[]>|null
+     * @return \Obada\Entities\UnprocessableEntityFields[]|null
      */
-    public function getErrors()
+    public function getFields()
     {
-        return $this->container['errors'];
+        return $this->container['fields'];
     }
 
     /**
-     * Sets errors
+     * Sets fields
      *
-     * @param array<string,string[]>|null $errors errors
+     * @param \Obada\Entities\UnprocessableEntityFields[]|null $fields fields
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setFields($fields)
     {
-        $this->container['errors'] = $errors;
+        $this->container['fields'] = $fields;
 
         return $this;
     }
