@@ -72,7 +72,7 @@ All URIs are relative to *http://obs.node.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ObitApi* | [**checksum**](docs/Api/ObitApi.md#checksum) | **POST** /obit/checksum | Generates obit checksum.
+*ObitApi* | [**checksum**](docs/Api/ObitApi.md#checksum) | **POST** /obit/checksum | Generates Obit checksum
 *ObitApi* | [**generateId**](docs/Api/ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
 *ObitApi* | [**get**](docs/Api/ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 *ObitApi* | [**history**](docs/Api/ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN

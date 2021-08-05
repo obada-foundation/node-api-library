@@ -4,7 +4,7 @@ All URIs are relative to http://obs.node.obada.io.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checksum()**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates obit checksum.
+[**checksum()**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates Obit checksum
 [**generateId()**](ObitApi.md#generateId) | **POST** /obit/id | Generate Obit ID
 [**get()**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 [**history()**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 checksum($obit): \Obada\Entities\Checksum
 ```
 
-Generates obit checksum.
+Generates Obit checksum
 
 ### Example
 

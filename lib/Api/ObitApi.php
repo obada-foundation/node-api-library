@@ -118,7 +118,7 @@ class ObitApi
     /**
      * Operation checksum
      *
-     * Generates obit checksum.
+     * Generates Obit checksum
      *
      * @param  \Obada\Entities\Obit $obit obit (optional)
      *
@@ -135,7 +135,7 @@ class ObitApi
     /**
      * Operation checksumWithHttpInfo
      *
-     * Generates obit checksum.
+     * Generates Obit checksum
      *
      * @param  \Obada\Entities\Obit $obit (optional)
      *
@@ -261,7 +261,7 @@ class ObitApi
     /**
      * Operation checksumAsync
      *
-     * Generates obit checksum.
+     * Generates Obit checksum
      *
      * @param  \Obada\Entities\Obit $obit (optional)
      *
@@ -281,7 +281,7 @@ class ObitApi
     /**
      * Operation checksumAsyncWithHttpInfo
      *
-     * Generates obit checksum.
+     * Generates Obit checksum
      *
      * @param  \Obada\Entities\Obit $obit (optional)
      *
