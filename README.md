@@ -68,7 +68,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *http://obs.node.obada.io*
+All URIs are relative to *https://obs.node.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

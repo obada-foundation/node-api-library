@@ -1,6 +1,6 @@
 # Obada\ObitApi
 
-All URIs are relative to http://obs.node.obada.io.
+All URIs are relative to https://obs.node.obada.io.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
