@@ -72,8 +72,8 @@ All URIs are relative to *http://obs.node.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ObitApi* | [**checksum**](docs/Api/ObitApi.md#checksum) | **POST** /obit/checksum | Generates obit checksum.
-*ObitApi* | [**generateId**](docs/Api/ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
+*ObitApi* | [**checksum**](docs/Api/ObitApi.md#checksum) | **POST** /obit/checksum | Generates Obit checksum
+*ObitApi* | [**generateDID**](docs/Api/ObitApi.md#generatedid) | **POST** /obit/did | Generate Obit DID
 *ObitApi* | [**get**](docs/Api/ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 *ObitApi* | [**history**](docs/Api/ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
 *ObitApi* | [**save**](docs/Api/ObitApi.md#save) | **POST** /obits | Save Obit
@@ -88,11 +88,11 @@ Class | Method | HTTP request | Description
 - [MetaDataRecord](docs/Model/MetaDataRecord.md)
 - [NotFound](docs/Model/NotFound.md)
 - [Obit](docs/Model/Obit.md)
+- [ObitDID](docs/Model/ObitDID.md)
 - [ObitHistory](docs/Model/ObitHistory.md)
-- [ObitId](docs/Model/ObitId.md)
 - [Obits](docs/Model/Obits.md)
 - [ObitsMeta](docs/Model/ObitsMeta.md)
-- [RequestObitId](docs/Model/RequestObitId.md)
+- [RequestObitDID](docs/Model/RequestObitDID.md)
 - [StructureDataRecord](docs/Model/StructureDataRecord.md)
 - [UnprocessableEntity](docs/Model/UnprocessableEntity.md)
 - [UnprocessableEntityFields](docs/Model/UnprocessableEntityFields.md)
