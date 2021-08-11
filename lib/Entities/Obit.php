@@ -71,7 +71,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'partNumber' => 'string',
         'serialNumberHash' => 'string',
         'metadata' => '\Obada\Entities\MetaDataRecord[]',
-        'documents' => '\Obada\Entities\DocumentLink[]',
         'structuredData' => '\Obada\Entities\StructureDataRecord[]',
         'modifiedOn' => 'int',
         'checksum' => 'string'
@@ -95,7 +94,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'partNumber' => null,
         'serialNumberHash' => null,
         'metadata' => null,
-        'documents' => null,
         'structuredData' => null,
         'modifiedOn' => 'int64',
         'checksum' => null
@@ -138,7 +136,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'partNumber' => 'part_number',
         'serialNumberHash' => 'serial_number_hash',
         'metadata' => 'metadata',
-        'documents' => 'documents',
         'structuredData' => 'structured_data',
         'modifiedOn' => 'modified_on',
         'checksum' => 'checksum'
@@ -160,7 +157,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'partNumber' => 'setPartNumber',
         'serialNumberHash' => 'setSerialNumberHash',
         'metadata' => 'setMetadata',
-        'documents' => 'setDocuments',
         'structuredData' => 'setStructuredData',
         'modifiedOn' => 'setModifiedOn',
         'checksum' => 'setChecksum'
@@ -182,7 +178,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         'partNumber' => 'getPartNumber',
         'serialNumberHash' => 'getSerialNumberHash',
         'metadata' => 'getMetadata',
-        'documents' => 'getDocuments',
         'structuredData' => 'getStructuredData',
         'modifiedOn' => 'getModifiedOn',
         'checksum' => 'getChecksum'
@@ -255,7 +250,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['partNumber'] = $data['partNumber'] ?? null;
         $this->container['serialNumberHash'] = $data['serialNumberHash'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['documents'] = $data['documents'] ?? null;
         $this->container['structuredData'] = $data['structuredData'] ?? null;
         $this->container['modifiedOn'] = $data['modifiedOn'] ?? null;
         $this->container['checksum'] = $data['checksum'] ?? null;
@@ -533,30 +527,6 @@ class Obit implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets documents
-     *
-     * @return \Obada\Entities\DocumentLink[]|null
-     */
-    public function getDocuments()
-    {
-        return $this->container['documents'];
-    }
-
-    /**
-     * Sets documents
-     *
-     * @param \Obada\Entities\DocumentLink[]|null $documents To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1=hash-of-document. Note this does not yet adhere to the hashlink standard.
-     *
-     * @return self
-     */
-    public function setDocuments($documents)
-    {
-        $this->container['documents'] = $documents;
 
         return $this;
     }

@@ -237,7 +237,7 @@ No authorization required
 ## `save()`
 
 ```php
-save($obit)
+save($obit): \Obada\Entities\Obit
 ```
 
 Save Obit
@@ -260,7 +260,8 @@ $apiInstance = new Obada\Api\ObitApi(
 $obit = new \Obada\Entities\Obit(); // \Obada\Entities\Obit
 
 try {
-    $apiInstance->save($obit);
+    $result = $apiInstance->save($obit);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObitApi->save: ', $e->getMessage(), PHP_EOL;
 }
@@ -274,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Obada\Entities\Obit**](../Model/Obit.md)
 
 ### Authorization
 

@@ -82,7 +82,6 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [Checksum](docs/Model/Checksum.md)
-- [DocumentLink](docs/Model/DocumentLink.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
 - [InternalServerError](docs/Model/InternalServerError.md)
 - [MetaDataRecord](docs/Model/MetaDataRecord.md)

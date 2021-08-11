@@ -5,7 +5,6 @@ README.md
 composer.json
 docs/Api/ObitApi.md
 docs/Model/Checksum.md
-docs/Model/DocumentLink.md
 docs/Model/InlineResponse200.md
 docs/Model/InternalServerError.md
 docs/Model/MetaDataRecord.md
@@ -24,7 +23,6 @@ lib/Api/ObitApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/Entities/Checksum.php
-lib/Entities/DocumentLink.php
 lib/Entities/InlineResponse200.php
 lib/Entities/InternalServerError.php
 lib/Entities/MetaDataRecord.php
