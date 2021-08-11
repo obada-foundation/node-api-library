@@ -42,5 +42,3 @@ lib/Entities/UnprocessableEntityFields.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/ObitDIDTest.php
-test/Model/RequestObitDIDTest.php
